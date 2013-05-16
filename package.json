@@ -1,0 +1,22 @@
+{
+  "name": "inscricaoestadual",
+  "version": "0.0.0",
+  "description": "Biblioteca de validação de inscrições estaduais",
+  "main": "ie.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gammasoft/ie.git"
+  },
+  "keywords": [
+    "inscrição",
+    "estadual",
+    "validação"
+  ],
+  "author": "Renato Gama",
+  "license": "BSD",
+  "gitHead": "2fb8c5b48c2968cec93918421d035fda484dbea9",
+  "readmeFilename": "README.md"
+}
