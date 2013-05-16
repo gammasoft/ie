@@ -19,6 +19,23 @@ function validar(estado, ie){
 	return this[estado](ie);
 };
 
+function mg(valor){
+	if(valor.length !== 13) return false;
+
+	var base = valor.substring(0, 11);
+
+	var baseComZero = valor.substring(0, 3) + "0" + valor.substring(3, 11);
+	
+	var produtorioLiteral = mod11literal(baseComZero, [2, 1]);
+	
+	var primeiro = ((parseInt(produtorioLiteral / 10) + 1) * 10) - produtorioLiteral;
+	
+	var resto = mod11(base + primeiro, [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
+	var segundo = (resto <= 1 ? 0 : 11 - resto);
+	
+	return valor === base + primeiro + segundo;
+}
+
 function go(valor){
 	if(valor.length !== 9) return false;
 	if(["10", "11", "15"].indexOf(valor.substring(0, 2)) === -1) return false;
@@ -62,6 +79,19 @@ function df(valor){
 function entre(valor, limiteInferior, limiteSuperior){
 	if(typeof valor === "string") valor = parseInt(valor);
 	return valor >= limiteInferior && valor <= limiteSuperior;
+}
+
+function mod11literal(valor, multiplicadores){
+	if(typeof multiplicadores === "undefined")
+		multiplicadores = [2, 3, 4, 5, 6, 7, 8, 9];
+		
+	var i = 0;
+	return valor.split("").reduceRight(function(anterior, atual){
+		if(i > multiplicadores.length - 1) i = 0;
+		return (multiplicadores[i++] * parseInt(atual)).toString() + anterior.toString(); 
+	}, "").split("").reduce(function(anterior, atual){
+		return anterior + parseInt(atual);
+	}, 0);
 }
 
 function mod11(valor, multiplicadores){
