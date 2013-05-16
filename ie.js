@@ -7,6 +7,7 @@ var estados =
 	 "rs", "ro", "rr", "sc",
 	 "sp", "se", "to"];
 
+//uglifyjs ie.js -c -m --output ie.min.js
 function validar(estado, ie){
 	if(typeof estado === "undefined") throw new Error("Estado deve ser fornecido");
 	if(typeof estado !== "string") throw new Error("Estado deve ser uma string");
