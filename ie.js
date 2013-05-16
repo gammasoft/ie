@@ -8,16 +8,18 @@ var estados =
 	 "sp", "se", "to"];
 
 function validar(estado, ie){
-	if(typeof estado === "undefined") throw new Error("Estado deve ser forncedido");
-	if(estados.indexOf(estado.toLowerCase()) === -1) throw new Error("O estado fornecido não é válido"); 
+	if(typeof estado === "undefined") throw new Error("Estado deve ser fornecido");
+	if(typeof estado !== "string") throw new Error("Estado deve ser uma string");
+	estado = estado.toLowerCase();
+	if(estados.indexOf(estado.toLowerCase()) === -1) throw new Error("O estado fornecido não é válido");
 	if(typeof ie === "undefined") throw new Error("Inscrição estadual deve ser fornecida");
 	if(typeof ie !== "string") throw new Error("Inscrição estadual deve ser um string");
-	
+	if(!/^\d+$/.test(ie)) return false;
+		
 	return this[estado](ie);
 };
 
 function go(valor){
-	if(!/^\d+$/.test(valor)) return false;
 	if(valor.length !== 9) return false;
 	if(["10", "11", "15"].indexOf(valor.substring(0, 2)) === -1) return false;
 	
@@ -44,7 +46,6 @@ function go(valor){
 }
 
 function df(valor){
-	if(!/^\d+$/.test(valor)) return false;
 	if(valor.length !== 13) return false;
 	
 	var base = valor.substring(0, 11);
