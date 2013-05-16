@@ -15,15 +15,12 @@ function validar(estado, ie){
 	
 }
 
-function mod11(valor, retornarResto, multiplicadores){
-	if(typeof retornarResto === "undefined") retornarResto = false;
+function mod11(valor, multiplicadores){
 	if(typeof multiplicadores === "undefined") multiplicadores = [2, 3, 4, 5, 6, 7, 8, 9];
 		
 	var i = 0;
-	var resto = valor.split("").reduceRight(function(anterior, atual){
+	return valor.split("").reduceRight(function(anterior, atual){
 		if(i > multiplicadores.length - 1) i = 0;
 		return (multiplicadores[i++] * parseInt(atual)) + anterior; 
 	}, 0) % 11;
-	
-	return retornarResto ? resto : (11 - resto >= 10 ? 0 : 11 - resto);
 }
