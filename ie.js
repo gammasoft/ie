@@ -35,6 +35,25 @@ function mg(valor){
 	var segundo = (resto <= 1 ? 0 : 11 - resto);
 	
 	return valor === base + primeiro + segundo;
+
+	//as tres primeiras falham
+	var verdadeiras = [
+		"7072973200009",
+		"1861400080005", 
+		"0013549440006",
+		"2719187320012",
+		"4331400080278",
+		"4801796120060",
+		"4811796120477", 
+		"0742720420040",
+		"4793672720387",
+		"0013549440189",
+		"0013549440260", 
+		"0013549440340",
+		"0162973200227",
+		"7041777990034",
+		"4701777990218",
+		"0931777990444"];
 }
 
 function go(valor){
@@ -61,6 +80,22 @@ function go(valor){
 	else digito = 11 - resto; 
 
 	return valor === base + digito;
+	
+	//todas passam
+	var verdadeiras = [
+	   "103010068",
+	   "100549365",
+	   "102082073",
+	   "100395961",
+	   "104329211",
+	   "103472517",
+	   "101126689",
+	   "103598685",
+	   "103598510",
+	   "102959579",
+	   "103014306",
+	   "105256030",
+	   "104787910"];
 }
 
 function df(valor){
@@ -75,6 +110,10 @@ function df(valor){
 	var segundo = 11 - restoSegundo >= 10 ? 0 : 11 - restoSegundo;
 	
 	return valor === base + primeiro + segundo;
+	
+	var verdadeiras = [
+	                   ""
+	                   ];
 }
 
 function entre(valor, limiteInferior, limiteSuperior){
