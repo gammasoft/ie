@@ -1,5 +1,5 @@
 ## IE - Biblioteca de validação de inscrições estaduais
-Escrito por @renatoargh
+Escrito por [@renatoargh](http://www.github.com/renatoargh "Renato Gama")
 
 ### Utilização:
 
@@ -16,7 +16,8 @@ Onde, `uf` deve ser uma string entre um dos valores
       "rs", "ro", "rr", "sc",
       "sp", "se", "to"];
 
-E `inscricaEstadual` uma string contendo o valor a ser validado
+E `inscricaEstadual` uma string contendo o valor a ser validado. 
+Pode-se receber uma string com máscara, pois os separadores `[".", "-", "/"]` são desconsiderados para a validação.
 
 ### Implementados até agora (14,81%)
 **Região Centro-Oeste**
