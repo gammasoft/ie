@@ -18,9 +18,9 @@ Onde, `uf` deve ser uma string entre um dos valores
 
 E `inscricaEstadual` uma string contendo o valor a ser validado
 
-### Implementados até agora (11,11%)
+### Implementados até agora (14,81%)
 **Região Centro-Oeste**
-- [ ] Mato Grosso do Sul
+- [X] Mato Grosso do Sul
 - [ ] Mato Grosso
 - [X] Goiás
 - [X] Distrito Federal
