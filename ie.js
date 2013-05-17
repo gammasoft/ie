@@ -8,6 +8,7 @@ var estados =
 	 "sp", "se", "to"];
 
 //uglifyjs ie.js -c -m --output ie.min.js
+//BA, PE e RS: http://www.basf.com.br/default.asp?id=911
 function validar(estado, ie){
 	if(typeof estado === "undefined") throw new Error("Estado deve ser fornecido");
 	if(typeof estado !== "string") throw new Error("Estado deve ser uma string");
@@ -15,10 +16,42 @@ function validar(estado, ie){
 	if(estados.indexOf(estado.toLowerCase()) === -1) throw new Error("O estado fornecido não é válido");
 	if(typeof ie === "undefined") throw new Error("Inscrição estadual deve ser fornecida");
 	if(typeof ie !== "string") throw new Error("Inscrição estadual deve ser um string");
+	ie = ie.replace(/\./g, "").replace(/-/g, "").replace(/\//g, "");
 	if(!/^\d+$/.test(ie)) return false;
 		
 	return this[estado](ie);
 };
+
+function sp(valor){
+	if(valor.length !== 12) return false;
+	
+	var primeiraBase = valor.substring(0, 8);
+	var segundaBase = valor.substring(9, 11);
+	
+	var primeiroResto = mod11(primeiraBase, [10, 8, 7, 6, 5, 4, 3, 1]).toString(); 
+	var primeiro = primeiroResto.length > 1 ? primeiroResto[1] : primeiroResto[0];
+	
+	var segundoResto = mod11(primeiraBase + primeiro + segundaBase, [2, 3, 4, 5, 6, 7, 8, 9, 10]).toString();
+	var segundo = segundoResto.length > 1 ? segundoResto[1] : segundoResto[0];
+	
+	return valor === primeiraBase + primeiro + segundaBase + segundo;
+}
+
+function spTeste(){
+	return [
+		 "110.042.490.114",
+		 "332.000.198.112",
+		 "635.010.160.112",
+		 "149.715.556.115",
+		 "353.239.330.115",
+		 "442.028.760.112",
+		 "630.002.196.118",
+		 "148.228.207.116",
+		 "513.467.779.111",
+		 "392.109.284.115"].every(function(ie){
+			return validar("sp", ie);
+		});
+}
 
 function mg(valor){
 	if(valor.length !== 13) return false;
