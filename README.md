@@ -5,7 +5,7 @@ Escrito por @renatoargh
 
     validar(uf, inscricaoEstadual);
     
-Onde, `uf` deve estar entre um dos valores 
+Onde, `uf` deve ser uma string entre um dos valores 
     
     var estados =
       ["ac", "al", "ap", "am", 
@@ -16,12 +16,20 @@ Onde, `uf` deve estar entre um dos valores
       "rs", "ro", "rr", "sc",
       "sp", "se", "to"];
 
-### Implementados até agora (7,41%)
+E `inscricaEstadual` uma string contendo o valor a ser validado
+
+### Implementados até agora (11,11%)
 **Região Centro-Oeste**
 - [ ] Mato Grosso do Sul
 - [ ] Mato Grosso
-- [x] Goiás
-- [x] Distrito Federal
+- [X] Goiás
+- [X] Distrito Federal
+
+**Região Sudeste** 
+- [X] Minas Gerais 
+- [ ] Espírito Santo 
+- [ ] Rio de Janeiro 
+- [ ] São Paulo
 
 **Região Norte**
 - [ ] Rondônia
@@ -41,13 +49,7 @@ Onde, `uf` deve estar entre um dos valores
 - [ ] Pernambuco 
 - [ ] Alagoas 
 - [ ] Sergipe 
-- [ ] Bahia 
-
-**Região Sudeste** 
-- [ ] Minas Gerais 
-- [ ] Espírito Santo 
-- [ ] Rio de Janeiro 
-- [ ] São Paulo 
+- [ ] Bahia  
 
 **Região Sul**
 - [ ] Paraná
