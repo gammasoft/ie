@@ -19,7 +19,7 @@ Onde, `uf` deve ser uma string entre um dos valores
 E `inscricaEstadual` uma string contendo o valor a ser validado. 
 Pode-se receber uma string com máscara, pois os separadores `[".", "-", "/"]` são desconsiderados para a validação.
 
-### Implementados até agora (14,81%)
+### Implementados até agora (18,52%)
 **Região Centro-Oeste**
 - [X] Mato Grosso do Sul
 - [ ] Mato Grosso
@@ -30,7 +30,7 @@ Pode-se receber uma string com máscara, pois os separadores `[".", "-", "/"]` s
 - [X] Minas Gerais 
 - [ ] Espírito Santo 
 - [ ] Rio de Janeiro 
-- [ ] São Paulo
+- [X] São Paulo
 
 **Região Norte**
 - [ ] Rondônia
