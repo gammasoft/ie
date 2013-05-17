@@ -17,24 +17,36 @@ function validar(estado, ie){
 	if(typeof ie === "undefined") throw new Error("Inscrição estadual deve ser fornecida");
 	if(typeof ie !== "string") throw new Error("Inscrição estadual deve ser um string");
 	ie = ie.replace(/\./g, "").replace(/-/g, "").replace(/\//g, "");
-	if(!/^\d+$/.test(ie)) return false;
+	if(estado !== "sp" && !/^\d+$/.test(ie)) return false;
 		
 	return this[estado](ie);
 };
 
 function sp(valor){
-	if(valor.length !== 12) return false;
-	
-	var primeiraBase = valor.substring(0, 8);
-	var segundaBase = valor.substring(9, 11);
-	
-	var primeiroResto = mod11(primeiraBase, [10, 8, 7, 6, 5, 4, 3, 1]).toString(); 
-	var primeiro = primeiroResto.length > 1 ? primeiroResto[1] : primeiroResto[0];
-	
-	var segundoResto = mod11(primeiraBase + primeiro + segundaBase, [2, 3, 4, 5, 6, 7, 8, 9, 10]).toString();
-	var segundo = segundoResto.length > 1 ? segundoResto[1] : segundoResto[0];
-	
-	return valor === primeiraBase + primeiro + segundaBase + segundo;
+	valor = valor.toUpperCase();
+	if(valor.substr(0, 1) === "P"){
+		if(valor.length !== 13) return false;
+		
+		var base = valor.substring(1, 9);
+		var segundaBase = valor.substring(10, 13);
+		var resto = mod11(base, [10, 8, 7, 6, 5, 4, 3, 1]).toString();
+		var digito = resto.length > 1 ? resto[1] : resto[0];
+		
+		return valor === "P" + base + digito + segundaBase;
+	}else{
+		if(valor.length !== 12) return false;
+		
+		var primeiraBase = valor.substring(0, 8);
+		var segundaBase = valor.substring(9, 11);
+		
+		var primeiroResto = mod11(primeiraBase, [10, 8, 7, 6, 5, 4, 3, 1]).toString(); 
+		var primeiro = primeiroResto.length > 1 ? primeiroResto[1] : primeiroResto[0];
+		
+		var segundoResto = mod11(primeiraBase + primeiro + segundaBase, [2, 3, 4, 5, 6, 7, 8, 9, 10]).toString();
+		var segundo = segundoResto.length > 1 ? segundoResto[1] : segundoResto[0];
+		
+		return valor === primeiraBase + primeiro + segundaBase + segundo;
+	}
 }
 
 function spTeste(){
@@ -48,7 +60,8 @@ function spTeste(){
 		 "630.002.196.118",
 		 "148.228.207.116",
 		 "513.467.779.111",
-		 "392.109.284.115"].every(function(ie){
+		 "392.109.284.115",
+		 "P-01100424.3/002"].every(function(ie){
 			return validar("sp", ie);
 		});
 }
