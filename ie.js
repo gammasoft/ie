@@ -53,7 +53,7 @@ function mg(valor){
 	"7041777990034",
 	"4701777990218",
 	"0931777990444"].map(function(ie){
-		return {ie: ie, valida: mg(ie)};
+		return mg(ie);
 	});
 }
 
@@ -95,7 +95,39 @@ function go(valor){
 	"103014306",
 	"105256030",
 	"104787910"].map(function(ie){
-		return {ie: ie, valida: go(ie)};
+		return go(ie);
+	});
+}
+
+function ms(valor){
+	if(valor.length !== 9) return false;
+	if(valor.split("")[0] !== "2") return false;
+	if(valor.split("")[1] !== "8") return false;
+	
+	var base = valor.substring(0, 8);
+	resto = mod11(base);
+	
+	var digito = (resto <= 1 ? 0 : 11 - resto);
+	
+	return valor === base + digito;
+	
+	["282757961",
+	 "283278277",
+	 "283240784",
+	 "283380098",
+	 "283254130",
+	 "283231033",
+	 "283190817",
+	 "283531932",
+	 "283278455",
+	 "283571810",
+	 "283420049",
+	 "283522445",
+	 "283169109",
+	 "283641886",
+	 "283525118",
+	 "283304626"].map(function(ie){
+		return ms(ie);
 	});
 }
 
@@ -112,9 +144,15 @@ function df(valor){
 	
 	return valor === base + primeiro + segundo;
 	
-	var verdadeiras = [
-	                   ""
-	                   ];
+	["0740815100160",
+	 "0732466700167",
+	 "0736177200166",
+	 "0744636700204",
+	 "0754082900152",
+	 "0730000100109",
+	 "0746893500197"].map(function(ie){
+		return df(ie);
+	});
 }
 
 function entre(valor, limiteInferior, limiteSuperior){
