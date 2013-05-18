@@ -1,9 +1,12 @@
-## IE - Biblioteca de validação de inscrições estaduais
+## IE - Validação de inscrições estaduais para node.js
 Escrito por [@renatoargh](http://www.github.com/renatoargh "Renato Gama")
+
+### Instalação
+    npm install inscricaoestadual
 
 ### Utilização:
 
-    validar(uf, inscricaoEstadual);
+    ie(uf, inscricaoEstadual);
     
 Onde, `uf` deve ser uma string entre um dos valores 
     
