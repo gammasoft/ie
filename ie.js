@@ -17,10 +17,31 @@ function validar(estado, ie){
 	if(typeof ie === "undefined") throw new Error("Inscrição estadual deve ser fornecida");
 	if(typeof ie !== "string") throw new Error("Inscrição estadual deve ser um string");
 	ie = ie.replace(/\./g, "").replace(/-/g, "").replace(/\//g, "");
-	if(estado !== "sp" && !/^\d+$/.test(ie)) return false;
-		
-	return this[estado](ie);
+	
+	if(/^\d+$/.test(ie) || estado === "sp") return this[estado](ie);
+	else return false;
 };
+
+function mt(valor){
+	if(valor.length !== 11 && valor.length !== 9) return false;
+	
+	var base = valor.length === 11 ? valor.substring(0, 10) : valor.substring(0, 8);
+	var resto = mod11(base);
+	var digito = resto <= 1 ? 0 : 11 - resto; 
+	
+	return valor === base + digito;
+	
+	function mtTeste(){
+		return [
+		 "00130000019",
+		 "131844474",
+		 "133607470",
+		 "132150964" 
+		 ].every(function(ie){
+			return validar("mt", ie);
+		});
+	}
+}
 
 function sp(valor){
 	valor = valor.toUpperCase();
@@ -47,23 +68,23 @@ function sp(valor){
 		
 		return valor === primeiraBase + primeiro + segundaBase + segundo;
 	}
-}
-
-function spTeste(){
-	return [
-		 "110.042.490.114",
-		 "332.000.198.112",
-		 "635.010.160.112",
-		 "149.715.556.115",
-		 "353.239.330.115",
-		 "442.028.760.112",
-		 "630.002.196.118",
-		 "148.228.207.116",
-		 "513.467.779.111",
-		 "392.109.284.115",
-		 "P-01100424.3/002"].every(function(ie){
-			return validar("sp", ie);
-		});
+	
+	function spTeste(){
+		return [
+			 "110.042.490.114",
+			 "332.000.198.112",
+			 "635.010.160.112",
+			 "149.715.556.115",
+			 "353.239.330.115",
+			 "442.028.760.112",
+			 "630.002.196.118",
+			 "148.228.207.116",
+			 "513.467.779.111",
+			 "392.109.284.115",
+			 "P-01100424.3/002"].every(function(ie){
+				return validar("sp", ie);
+			});
+	}
 }
 
 function mg(valor){
