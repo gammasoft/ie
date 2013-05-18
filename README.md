@@ -60,3 +60,6 @@ Pode-se receber uma string com máscara, pois os separadores `[".", "-", "/"]` s
 - [ ] Paraná
 - [ ] Santa Catarina
 - [ ] Rio Grande do Sul
+
+### Faça uma doação :)
+[![Faça uma doação!](https://www.paypalobjects.com/pt_BR/BR/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/br/cgi-bin/webscr?cmd=_flow&SESSION=qNGRiSLjATOZ2vcKDXVkTmXi5nz5yqBQNI2wQ-qmHQ4wtKUIIg9Px9HR3QG&dispatch=5885d80a13c0db1f8e263663d3faee8d14f86393d55a810282b64afed84968ec)
