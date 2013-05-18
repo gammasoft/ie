@@ -4,7 +4,7 @@
   "description": "Biblioteca de validação de inscrições estaduais",
   "main": "ie.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node testes.js"
   },
   "repository": {
     "type": "git",
