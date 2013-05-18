@@ -6,6 +6,7 @@ Escrito por [@renatoargh](http://www.github.com/renatoargh "Renato Gama")
 
 ### Utilização:
 
+    var ie = require("inscricaoestadual");
     ie(uf, inscricaoEstadual);
     
 Onde, `uf` deve ser uma string entre um dos valores 
