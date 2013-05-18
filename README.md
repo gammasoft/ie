@@ -7,7 +7,7 @@ Escrito por [@renatoargh](http://www.github.com/renatoargh "Renato Gama")
 ### Utilização:
 
     var ie = require("inscricaoestadual");
-    ie(uf, inscricaoEstadual);
+    ie(uf, inscricaoEstadual); //retorna um boleano, indicando se a inscrição estadual é valida ou não
     
 Onde, `uf` deve ser uma string entre um dos valores 
     
