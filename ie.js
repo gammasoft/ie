@@ -24,6 +24,16 @@ module.exports = function(estado, ie){
 
 var funcoes = {};
 
+funcoes.rs = function(valor){
+	if(valor.length !== 10) return false;
+	
+	var base = valor.substring(0, 9);
+	var resto = mod11(base);
+	var digito = resto < 2 ? 0 : 11 - resto; 
+	
+	return valor === base + digito;
+};
+
 funcoes.mt = function(valor){
 	if(valor.length !== 11 && valor.length !== 9) return false;
 	
