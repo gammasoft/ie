@@ -24,6 +24,17 @@ module.exports = function(estado, ie){
 
 var funcoes = {};
 
+funcoes.ma = function(valor){
+	if(valor.length !== 9) return false;
+	if("12" !== valor.substring(0, 2)) return false;
+	
+	var base = valor.substring(0, 8);
+	var resto = mod11(base);
+	var digito = resto < 2 ? 0 : 11 - resto; 
+	
+	return valor === base + digito;
+};
+
 funcoes.ac = function(valor){
 	//verificar: http://www.sefaz.al.gov.br/sintegra/cad_AC.asp
 	if(valor.length !== 13) return false;
