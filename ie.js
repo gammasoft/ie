@@ -16,7 +16,7 @@ module.exports = function(estado, ie){
 	if(estados.indexOf(estado.toLowerCase()) === -1) throw new Error("O estado fornecido não é válido");
 	if(typeof ie === "undefined") throw new Error("Inscrição estadual deve ser fornecida");
 	if(typeof ie !== "string") throw new Error("Inscrição estadual deve ser um string");
-	ie = ie.replace(/\./g, "").replace(/-/g, "").replace(/\//g, "");
+	ie = ie.replace(/\./g, "").replace(/-/g, "").replace(/\//g, "").replace(/\s/g, "");
 	
 	if(/^\d+$/.test(ie) || estado === "sp") return funcoes[estado](ie);
 	else return false;
