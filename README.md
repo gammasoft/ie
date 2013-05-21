@@ -43,7 +43,7 @@ Pode-se receber uma string com máscara, pois os separadores `[".", "-", "/"]` s
 
 **Região Norte**
 - [ ] Rondônia
-- [ ] Acre
+- [X] Acre
 - [ ] Amazonas
 - [ ] Roraima
 - [ ] Pará
