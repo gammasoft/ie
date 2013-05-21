@@ -24,6 +24,22 @@ module.exports = function(estado, ie){
 
 var funcoes = {};
 
+funcoes.ac = function(valor){
+	//verificar: http://www.sefaz.al.gov.br/sintegra/cad_AC.asp
+	if(valor.length !== 13) return false;
+	if("01" !== valor.substring(0, 2)) return false;
+	
+	var base = valor.substring(0, 11);
+	
+	var primeiroResto = mod11(base);
+	var primeiroDigito = primeiroResto < 2 ? 0 : 11 - primeiroResto;
+	
+	var segundoResto = mod11(base + primeiroDigito);
+	var segundoDigito = segundoResto < 2 ? 0 : 11 - segundoResto;
+	
+	return valor === base + primeiroDigito + segundoDigito;
+};
+
 funcoes.rs = function(valor){
 	if(valor.length !== 10) return false;
 	
