@@ -4,7 +4,7 @@
   "description": "Biblioteca de validação de inscrições estaduais",
   "main": "ie.js",
   "scripts": {
-    "test": "node testes.js"
+    "test": "nodeunit ./testes/*"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "author": "Renato Gama",
   "license": "BSD",
   "gitHead": "2fb8c5b48c2968cec93918421d035fda484dbea9",
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "nodeunit": "~0.8.0"
+  }
 }
