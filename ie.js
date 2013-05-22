@@ -23,6 +23,18 @@ module.exports = function(estado, ie){
 
 var funcoes = {};
 
+funcoes.pe = function(valor){
+	var base = valor.substring(0, valor.length - 2);
+	
+	var restoPrimeiro = mod11(base);
+	var primeiro = 11 - restoPrimeiro >= 10 ? 0 : 11 - restoPrimeiro;
+	
+	var restoSegundo = mod11(base + primeiro);
+	var segundo = 11 - restoSegundo >= 10 ? 0 : 11 - restoSegundo;
+	
+	return valor === base + primeiro + segundo;
+};
+
 funcoes.ma = function(valor){
 	if(valor.length !== 9) return false;
 	if("12" !== valor.substring(0, 2)) return false;

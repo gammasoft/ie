@@ -21,10 +21,12 @@ module.exports = {
 //		test.ok();
 //		test.done();
 //	},
-//	"Pernambuco": function(test){
-//		test.ok();
-//		test.done();
-//	},
+	"Pernambuco": function(test){
+		test.ok(["0192310-24", "0321418-40", "046.0814-37",
+		         "008394423", "001876406", "017050405",
+		         "039326136", "036394521", "037071300"].every(function(ie){ return inscricaoEstadual("pe", ie); }));
+		test.done();
+	},
 //	"Alagoas": function(test){
 //		test.ok();
 //		test.done();
@@ -164,7 +166,6 @@ module.exports = {
 //AL - Maceio: 241.056.683
 //BA - 66.607.504, 1.747.650, 09.392.197
 //PR - 90575418-11
-//PE: 0192310-24, 18.580.0074807-0, 046.0814-37
 //AM - Manaus: 04225480-9
 //RJ - 78368870, 10.008.689
 //NAO SEI DAONDE É: 07.316.897/001-00, 20.853.321-99, 
