@@ -1,6 +1,8 @@
 ## IE - Validação de inscrições estaduais para node.js
 Escrito por [@renatoargh](http://www.github.com/renatoargh "Renato Gama")
 
+![IE](https://travis-ci.org/gammasoft/ie.png)
+
 ### Instalação
     npm install inscricaoestadual
 
