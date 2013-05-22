@@ -7,8 +7,7 @@ var estados =
 	 "rs", "ro", "rr", "sc",
 	 "sp", "se", "to"];
 
-//uglifyjs ie.js -c -m --output ie.min.js
-//BA, PE e RS: http://www.basf.com.br/default.asp?id=911
+//BA, PE: http://www.basf.com.br/default.asp?id=911
 module.exports = function(estado, ie){
 	if(typeof estado === "undefined") throw new Error("Estado deve ser fornecido");
 	if(typeof estado !== "string") throw new Error("Estado deve ser uma string");
