@@ -1,3 +1,4 @@
+//browserify -r ./ie | uglifyjs -c -m --output ie.min.js
 var inscricaoEstadual = require("../ie");
 
 module.exports = {
