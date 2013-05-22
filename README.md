@@ -1,4 +1,5 @@
-## IE - Validação de inscrições estaduais para node.js
+## IE 
+### Validação de inscrições estaduais em JavaScript (browser e node.js)
 Escrito por [@renatoargh](http://www.github.com/renatoargh "Renato Gama") para [@gammasoft](http://www.github.com/gammasoft "Gammasoft")
 
 ![IE - Status da build](https://travis-ci.org/gammasoft/ie.png) &nbsp; ![IE - Status das dependencias](https://gemnasium.com/gammasoft/ie.png) &nbsp; ![IE - Última versão](https://badge.fury.io/js/inscricaoestadual.png)
@@ -7,10 +8,19 @@ Escrito por [@renatoargh](http://www.github.com/renatoargh "Renato Gama") para [
     npm install inscricaoestadual
 
 ### Utilização:
+#### Node.js 
 
     var ie = require("inscricaoestadual");
     ie(uf, inscricaoEstadual); //retorna um boleano, indicando se a inscrição estadual é valida ou não
     
+#### Browser
+
+    <script src="ie.min.js"></script>
+    <script>
+        var ie = require("./ie");
+        ie(uf, inscricaoEstadual); //retorna um boleano, indicando se a inscrição estadual é valida ou não
+    </script>
+
 Onde, `uf` deve ser uma string entre um dos valores 
     
     var estados =
