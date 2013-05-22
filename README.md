@@ -23,7 +23,7 @@ Onde, `uf` deve ser uma string entre um dos valores
       "sp", "se", "to"];
 
 E `inscricaEstadual` uma string contendo o valor a ser validado. 
-Pode-se receber uma string com máscara, pois os separadores `[".", "-", "/"]` são desconsiderados para a validação.
+Pode-se receber uma string com máscara, pois os separadores `[".", "-", "/", " "]` são desconsiderados para a validação.
 
 ### Implementados até agora (10 de 27 - 37,04%)
 **Região Centro-Oeste**
