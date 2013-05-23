@@ -14,7 +14,8 @@ module.exports = {
 		test.ok(["06.000001-5", "06.687526-9", "06.664935-8",
 		         "06.678895-1", "06.276628-7", "06.815570-0",
 		         "06.008899-0", "06.275630-3", "06.179667-0",
-		         "06.695014-7"].every(function(ie){ return inscricaoEstadual("ce", ie); }));
+		         "06.695014-7", "06.990406-5", "06.689890-0",
+		         "06.306763-3"].every(function(ie){ return inscricaoEstadual("ce", ie); }));
 		test.done();
 	},
 //	"Rio Grande do Norte": function(test){
