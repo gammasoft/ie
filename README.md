@@ -7,7 +7,7 @@ Escrito por [@renatoargh](http://www.github.com/renatoargh "Renato Gama") para [
 ### Instalação
     npm install inscricaoestadual
 
-### Utilização:
+### Utilização
 #### Node.js 
 
     var ie = require("inscricaoestadual");
