@@ -10,10 +10,13 @@ module.exports = {
 //		test.ok();
 //		test.done();
 //	},
-//	"Ceará": function(test){
-//		test.ok();
-//		test.done();
-//	},
+	"Ceará": function(test){
+		test.ok(["06.000001-5", "06.687526-9", "06.664935-8",
+		         "06.678895-1", "06.276628-7", "06.815570-0",
+		         "06.008899-0", "06.275630-3", "06.179667-0",
+		         "06.695014-7"].every(function(ie){ return inscricaoEstadual("ce", ie); }));
+		test.done();
+	},
 //	"Rio Grande do Norte": function(test){
 //		test.ok();
 //		test.done();
@@ -157,18 +160,18 @@ module.exports = {
 		         "0744636700204",
 		         "0754082900152",
 		         "0730000100109",
-		         "0746893500197"
+		         "0746893500197",
+		         "0731778300131"
 		         ].every(function(ie){ return inscricaoEstadual("df", ie); }));
 		test.done();
 	},
 };
 
-//CE - Fortaleza: 06.687.526-9
 //AL - Maceio: 241.056.683
 //BA - 66.607.504, 1.747.650, 09.392.197
 //PR - 90575418-11
 //AM - Manaus: 04225480-9
-//RJ - 78368870, 10.008.689
+//RJ - 78368870, 10.008.689, 82.879.781
 //NAO SEI DAONDE É: 07.316.897/001-00, 20.853.321-99, 
 
 //mascaras
