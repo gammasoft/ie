@@ -22,6 +22,17 @@ module.exports = function(estado, ie){
 
 var funcoes = {};
 
+funcoes.pa = function(valor){
+	if(valor.length !== 9) return false;
+	if("15" !== valor.substring(0, 2)) return false;
+	
+	var base = valor.substring(0, 8);
+	var resto = mod11(base);
+	var digito = resto < 2 ? 0 : 11 - resto; 
+	
+	return valor === base + digito;
+};
+
 funcoes.ce = function(valor){
 	if(valor.length !== 9) return false;
 	if("06" !== valor.substring(0, 2)) return false;
