@@ -26,7 +26,7 @@ funcoes.pi = function(valor){
 if(valor.length !== 9) return false;
 	
 	var base = valor.substring(0, 8);
-	var resto = mod11(base, [2, 3, 4, 5, 6, 7, 8, 9]);
+	var resto = mod11(base);
 	var digito = resto < 2 ? 0 : 11 - resto; 
 	
 	return valor === base + digito;
@@ -36,7 +36,7 @@ funcoes.es = function(valor){
 	if(valor.length !== 9) return false;
 	
 	var base = valor.substring(0, 8);
-	var resto = mod11(base, [2, 3, 4, 5, 6, 7, 8, 9]);
+	var resto = mod11(base);
 	var digito = resto < 2 ? 0 : 11 - resto; 
 	
 	return valor === base + digito;
@@ -180,6 +180,22 @@ funcoes.mg = function(valor){
 	var segundo = (resto <= 1 ? 0 : 11 - resto);
 	
 	return valor === base + primeiro + segundo;
+};
+
+funcoes.to = function(valor){
+	if(valor.length !== 9 && valor.length !== 11) return false;
+	
+	var base = "";
+	if(valor.length === 11){
+		if(["01", "02", "03", "99"].indexOf(valor.substring(2, 4)) === -1) return false;
+		base = valor.substring(0, 2) + valor.substring(4, 10);
+	}else
+		base = valor.substring(0, 8);
+		
+	var resto = mod11(base);
+	var digito = resto < 2 ? 0 : 11 - resto; 
+	
+	return valor === valor.substring(0, valor.length - 1) + digito;
 };
 
 funcoes.go = function(valor){
