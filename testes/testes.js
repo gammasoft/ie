@@ -6,10 +6,10 @@ module.exports = {
 		test.ok(["120000385", "122409892", "12.104.376-2"].every(function(ie){ return inscricaoEstadual("ma", ie); }));
 		test.done();
 	},
-//	"Piauí": function(test){
-//		test.ok();
-//		test.done();
-//	},
+	"Piauí": function(test){
+		test.ok(["012345679", "19.301.656-7", "19.000.252-2"].every(function(ie){ return inscricaoEstadual("pi", ie); }));
+		test.done();
+	},
 	"Ceará": function(test){
 		test.ok(["06.000001-5", "06.687526-9", "06.664935-8",
 		         "06.678895-1", "06.276628-7", "06.815570-0",

@@ -1,5 +1,5 @@
 ## IE 
-### Validação de inscrições estaduais em JavaScript (browser e node.js)
+### Validação de [inscrições estaduais](http://pt.wikipedia.org/wiki/Inscri%C3%A7%C3%A3o_Estadual "Inscrição Estadual no Wikipedia") em JavaScript (browser e node.js)
 Escrito por [@renatoargh](http://www.github.com/renatoargh "Renato Gama") para [@gammasoft](http://www.github.com/gammasoft "Gammasoft")
 
 ![IE - Status da build](https://travis-ci.org/gammasoft/ie.png) &nbsp; ![IE - Status das dependencias](https://gemnasium.com/gammasoft/ie.png) &nbsp; ![IE - Última versão](https://badge.fury.io/js/inscricaoestadual.png)
@@ -37,7 +37,17 @@ Onde, `uf` deve ser uma string entre um dos valores
 E `inscricaEstadual` uma string contendo o valor a ser validado. 
 Pode-se receber uma string com máscara, pois os separadores `[".", "-", "/", " "]` são desconsiderados para a validação.
 
-### Implementados até agora (13 de 27 - 48,15%)
+### Teste
+
+Para rodar os testes:
+
+    npm install //caso você ainda não tenho o nodeunit
+    npm test
+
+Todas as inscrições estaduais nos teste foram obtidas publicamente na internet. 
+Se você obteve uma validação falsa para uma inscrição estadual verdadeira, pesquisa no site do [SINTEGRA](http://www.sintegra.gov.br/ "Sintegra") se de fato esta inscrição estadual existe e é valida, neste caso [abra uma notificação](https://github.com/gammasoft/ie/issues/new) aqui no GitHub para apurarmos o caso. 
+
+### Implementados até agora (15 de 27 - 55.55%)
 **Região Centro-Oeste**
 - [X] Mato Grosso do Sul
 - [X] Mato Grosso
@@ -46,7 +56,7 @@ Pode-se receber uma string com máscara, pois os separadores `[".", "-", "/", " 
 
 **Região Sudeste** 
 - [X] Minas Gerais 
-- [ ] Espírito Santo 
+- [X] Espírito Santo 
 - [ ] Rio de Janeiro 
 - [X] São Paulo
 
@@ -66,7 +76,7 @@ Pode-se receber uma string com máscara, pois os separadores `[".", "-", "/", " 
 
 **Região Nordeste** 
 - [X] Maranhão 
-- [ ] Piauí 
+- [X] Piauí 
 - [X] Ceará 
 - [ ] Rio Grande do Norte 
 - [ ] Paraíba 
