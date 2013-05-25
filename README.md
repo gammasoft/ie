@@ -23,29 +23,30 @@ Escrito por [@renatoargh](http://www.github.com/renatoargh "Renato Gama") para [
 
 A função `ie` retorna um boleano, indicando se a inscrição estadual é válida ou não.
 
-Onde, `uf` deve ser uma string entre um dos valores 
-    
-    var estados =
-      ["ac", "al", "ap", "am", 
-      "ba", "ce", "df", "es",
-      "go", "ma", "mt", "ms",
-      "mg", "pa", "pb", "pr",
-      "pe", "pi", "rj", "rn",
-      "rs", "ro", "rr", "sc",
-      "sp", "se", "to"];
+#### Parâmetros
 
-E `inscricaEstadual` uma string contendo o valor a ser validado. 
+ - `uf` deve ser uma string entre um dos valores  
+
+          ["ac", "al", "ap", "am", 
+          "ba", "ce", "df", "es",
+          "go", "ma", "mt", "ms",
+          "mg", "pa", "pb", "pr",
+          "pe", "pi", "rj", "rn",
+          "rs", "ro", "rr", "sc",
+          "sp", "se", "to"]
+
+ - `inscricaEstadual` uma string contendo o valor a ser validado. 
 Pode-se receber uma string com máscara, pois os separadores `[".", "-", "/", " "]` são desconsiderados para a validação.
 
 ### Teste
 
 Para rodar os testes:
 
-    npm install //caso você ainda não tenho o nodeunit
+    npm install //caso você ainda não tenha o nodeunit
     npm test
 
-Todas as inscrições estaduais nos teste foram obtidas publicamente na internet. 
-Se você obteve uma validação falsa para uma inscrição estadual verdadeira, pesquisa no site do [SINTEGRA](http://www.sintegra.gov.br/ "Sintegra") se de fato esta inscrição estadual existe e é valida, neste caso [abra uma notificação](https://github.com/gammasoft/ie/issues/new) aqui no GitHub para apurarmos o caso. 
+Todas as inscrições estaduais nos testes foram obtidas publicamente na internet.  
+Se você obteve uma validação falsa para uma inscrição estadual verdadeira, pesquise no site do [SINTEGRA](http://www.sintegra.gov.br/ "Sintegra") se de fato esta inscrição estadual existe e é valida, neste caso [abra uma notificação](https://github.com/gammasoft/ie/issues/new) aqui no GitHub para apurarmos o caso. 
 
 ### Implementados até agora (15 de 27 - 55.55%)
 **Região Centro-Oeste**
