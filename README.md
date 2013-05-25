@@ -11,15 +11,17 @@ Escrito por [@renatoargh](http://www.github.com/renatoargh "Renato Gama") para [
 #### Node.js 
 
     var ie = require("inscricaoestadual");
-    ie(uf, inscricaoEstadual); //retorna um boleano, indicando se a inscrição estadual é valida ou não
+    ie(uf, inscricaoEstadual);
     
 #### Browser
 
     <script src="ie.min.js"></script>
     <script>
         var ie = require("./ie");
-        ie(uf, inscricaoEstadual); //retorna um boleano, indicando se a inscrição estadual é valida ou não
+        ie(uf, inscricaoEstadual);
     </script>
+
+A função `ie` retorna um boleano, indicando se a inscrição estadual é válida ou não.
 
 Onde, `uf` deve ser uma string entre um dos valores 
     
@@ -35,7 +37,7 @@ Onde, `uf` deve ser uma string entre um dos valores
 E `inscricaEstadual` uma string contendo o valor a ser validado. 
 Pode-se receber uma string com máscara, pois os separadores `[".", "-", "/", " "]` são desconsiderados para a validação.
 
-### Implementados até agora (12 de 27 - 44,44%)
+### Implementados até agora (13 de 27 - 48,15%)
 **Região Centro-Oeste**
 - [X] Mato Grosso do Sul
 - [X] Mato Grosso
@@ -49,7 +51,7 @@ Pode-se receber uma string com máscara, pois os separadores `[".", "-", "/", " 
 - [X] São Paulo
 
 **Região Sul**
-- [ ] Paraná
+- [X] Paraná
 - [ ] Santa Catarina
 - [X] Rio Grande do Sul
 
