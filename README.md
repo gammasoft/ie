@@ -24,6 +24,8 @@ Escrito por [@renatoargh](http://www.github.com/renatoargh "Renato Gama") para [
 A função `ie` retorna um boleano, indicando se a inscrição estadual é válida ou não.
 
 #### ie(inscricaoEstadual[, uf])
+ - `inscricaEstadual` uma string contendo o valor a ser validado ou um array de strings.  
+ Pode-se receber uma string com máscara, pois os separadores `[".", "-", "/", " "]` são desconsiderados para a validação.
 
  - `uf` é opcional, mas se fornecida pode ser `""` (string vazia) ou deve ser uma string entre um dos valores  
 
@@ -43,10 +45,6 @@ A função `ie` retorna um boleano, indicando se a inscrição estadual é váli
  
  Quando o estado é fornecido, a validação é otimizada pois o valor da inscrição estadual é testada apenas contra a regra do estado especificado e a fução retorna estritamente `true` ou `false`.
  
-
- - `inscricaEstadual` uma string contendo o valor a ser validado. 
-Pode-se receber uma string com máscara, pois os separadores `[".", "-", "/", " "]` são desconsiderados para a validação.
-
 ### Teste
 
 Para rodar os testes:
