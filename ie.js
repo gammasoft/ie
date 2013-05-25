@@ -37,6 +37,16 @@ function lookup(ie){
 
 var funcoes = {};
 
+funcoes.rj = function(valor){
+	if(valor.length !== 8) return false;
+	
+	var base = valor.substring(0, 7);
+	var resto = mod11(base, [2, 3, 4, 5, 6, 7]);
+	var digito = resto < 2 ? 0 : 11 - resto; 
+	
+	return valor === base + digito;
+};
+
 funcoes.pi = function(valor){
 	if(valor.length !== 9) return false;
 	
