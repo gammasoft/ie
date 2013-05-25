@@ -7,19 +7,22 @@ var estados =
 	 "rs", "ro", "rr", "sc",
 	 "sp", "se", "to", ""];
 
-module.exports = function(ie, estado){
+module.exports = validar; 
+function validar(ie, estado){
 	if(typeof estado === "undefined") estado = "";
 	estado = estado.toLowerCase();
 	if(estados.indexOf(estado.toLowerCase()) === -1) throw new Error("O estado fornecido não é válido");
 	
 	if(typeof ie === "undefined") throw new Error("Inscrição estadual deve ser fornecida");
-	if(typeof ie !== "string") throw new Error("Inscrição estadual deve ser um string");
-	ie = ie.replace(/\./g, "").replace(/-/g, "").replace(/\//g, "").replace(/\s/g, "");
+	
+	if(Array.isArray(ie)) return ie.map(function(ie){ return validar(ie, estado); });
+	else if(typeof ie !== "string") throw new Error("Inscrição estadual deve ser uma string ou um array de strings");
+	else ie = ie.replace(/\./g, "").replace(/-/g, "").replace(/\//g, "").replace(/\s/g, "");
 	
 	if(estado === "") return lookup(ie);
 	else if(/^\d+$/.test(ie) || estado === "sp") return funcoes[estado](ie);
 	else return false;
-};
+}
 
 function lookup(ie){
 	var resultado = [];

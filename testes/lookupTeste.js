@@ -33,4 +33,12 @@ module.exports = {
 		test.throws(function(){ inscricaoEstadual(123456, "df"); });
 		test.done();
 	},
+	"Lança exceção caso passado valor de estado inválido": function(test){
+		test.throws(function(){ inscricaoEstadual(123456, "testando"); });
+		test.done();
+	},
+	"Verifica que retorna array de resultados caso se passe array de inscrições estaduais": function(test){
+		test.deepEqual([false, true], inscricaoEstadual(["0745770500212", "P-01100424.3/002"], "sp"));
+		test.done();
+	}
 };
