@@ -45,7 +45,7 @@ A função `ie` retorna um boleano, indicando se a inscrição estadual é váli
  
  Quando o estado é fornecido, a validação é otimizada pois o valor da inscrição estadual é testada apenas contra a regra do estado especificado e a fução retorna estritamente `true` ou `false`.
  
-### Teste
+### Testes
 
 Para rodar os testes:
 
@@ -100,7 +100,7 @@ Se você obteve uma validação falsa para uma inscrição estadual verdadeira, 
 
 #### Licença BSD
 
-Copyright (c) 2013, Renato Mendonça da Gama  
+Copyright (c) 2013, Gammasoft Desenvolvimento de Software Ltda  
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
