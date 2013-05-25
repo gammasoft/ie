@@ -5,25 +5,37 @@ var estados =
 	 "mg", "pa", "pb", "pr",
 	 "pe", "pi", "rj", "rn",
 	 "rs", "ro", "rr", "sc",
-	 "sp", "se", "to"];
+	 "sp", "se", "to", ""];
 
-module.exports = function(estado, ie){
-	if(typeof estado === "undefined") throw new Error("Estado deve ser fornecido");
-	if(typeof estado !== "string") throw new Error("Estado deve ser uma string");
+module.exports = function(ie, estado){
+	if(typeof estado === "undefined") estado = "";
 	estado = estado.toLowerCase();
 	if(estados.indexOf(estado.toLowerCase()) === -1) throw new Error("O estado fornecido não é válido");
+	
 	if(typeof ie === "undefined") throw new Error("Inscrição estadual deve ser fornecida");
 	if(typeof ie !== "string") throw new Error("Inscrição estadual deve ser um string");
 	ie = ie.replace(/\./g, "").replace(/-/g, "").replace(/\//g, "").replace(/\s/g, "");
 	
-	if(/^\d+$/.test(ie) || estado === "sp") return funcoes[estado](ie);
+	if(estado === "") return lookup(ie);
+	else if(/^\d+$/.test(ie) || estado === "sp") return funcoes[estado](ie);
 	else return false;
 };
+
+function lookup(ie){
+	var resultado = [];
+	for (var estado in funcoes) {
+		if(funcoes.hasOwnProperty(estado) && funcoes[estado](ie))
+			resultado.push(estado);
+	}
+	
+	if(resultado.length === 0) return false;
+	else return resultado;
+}
 
 var funcoes = {};
 
 funcoes.pi = function(valor){
-if(valor.length !== 9) return false;
+	if(valor.length !== 9) return false;
 	
 	var base = valor.substring(0, 8);
 	var resto = mod11(base);

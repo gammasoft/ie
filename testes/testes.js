@@ -3,11 +3,11 @@ var inscricaoEstadual = require("../ie");
 
 module.exports = {
 	"Maranhão": function(test){
-		test.ok(["120000385", "122409892", "12.104.376-2"].every(function(ie){ return inscricaoEstadual("ma", ie); }));
+		test.ok(["120000385", "122409892", "12.104.376-2"].every(function(ie){ return inscricaoEstadual(ie, "ma"); }));
 		test.done();
 	},
 	"Piauí": function(test){
-		test.ok(["012345679", "19.301.656-7", "19.000.252-2"].every(function(ie){ return inscricaoEstadual("pi", ie); }));
+		test.ok(["012345679", "19.301.656-7", "19.000.252-2"].every(function(ie){ return inscricaoEstadual(ie, "pi"); }));
 		test.done();
 	},
 	"Ceará": function(test){
@@ -15,7 +15,7 @@ module.exports = {
 		         "06.678895-1", "06.276628-7", "06.815570-0",
 		         "06.008899-0", "06.275630-3", "06.179667-0",
 		         "06.695014-7", "06.990406-5", "06.689890-0",
-		         "06.306763-3"].every(function(ie){ return inscricaoEstadual("ce", ie); }));
+		         "06.306763-3"].every(function(ie){ return inscricaoEstadual(ie, "ce"); }));
 		test.done();
 	},
 //	"Rio Grande do Norte": function(test){
@@ -30,7 +30,7 @@ module.exports = {
 		test.ok(["0192310-24", "0321418-40", "046.0814-37",
 		         "008394423", "001876406", "017050405",
 		         "039326136", "036394521", "037071300",
-		         "037333941"].every(function(ie){ return inscricaoEstadual("pe", ie); }));
+		         "037333941"].every(function(ie){ return inscricaoEstadual(ie, "pe"); }));
 		test.done();
 	},
 //	"Alagoas": function(test){
@@ -65,7 +65,7 @@ module.exports = {
 		         "01.021.709/001-70", "01.016.255/001-18", "01.019.389/001-90", 
 		         "01.004.633/001-96", "01.027.993/001-98", "01.033.219/001-04", 
 		         "01.020.406/001-76", "01.014.322/001-04", "01.025.836/001-93", 
-		         "01.020.372/001-38", "01.022.770/001-25"].every(function(ie){ return inscricaoEstadual("ac", ie); }));
+		         "01.020.372/001-38", "01.022.770/001-25"].every(function(ie){ return inscricaoEstadual(ie, "ac"); }));
 		test.done();
 	},
 //	"Amazonas": function(test){
@@ -2931,7 +2931,7 @@ module.exports = {
 		         "15.260.731-5",
 		         "15.247.175-8",
 		         "15.253.551-9",
-		         "15.270.335-7"].every(function(ie){ return inscricaoEstadual("pa", ie); }));
+		         "15.270.335-7"].every(function(ie){ return inscricaoEstadual(ie, "pa"); }));
 		test.done();
 	},
 //	"Amapá": function(test){
@@ -3434,7 +3434,7 @@ module.exports = {
 		         "29.386.520-5",
 		         "29.067.043-8",
 		         "29.053.088-1",
-		         "29.402.045-4"].every(function(ie){ return inscricaoEstadual("to", ie); }));
+		         "29.402.045-4"].every(function(ie){ return inscricaoEstadual(ie, "to"); }));
 		test.done();
 	},
 	"Paraná": function(test){
@@ -3450,7 +3450,7 @@ module.exports = {
 		         "9027615195",
 		         "9040407623",
 		         "3010346796"
-		         ].every(function(ie){ return inscricaoEstadual("pr", ie); }));
+		         ].every(function(ie){ return inscricaoEstadual(ie, "pr"); }));
 		test.done();
 	},
 //	"Santa Catarina": function(test){
@@ -3465,7 +3465,7 @@ module.exports = {
 		         "132/0069816", "096/3156659", "086/0316734",
 		         "093/0344260", "177/0069310", "024/0380100",
 		         "0860214869", "029/0461782", "0963094440",
-		         "096/3205056"].every(function(ie){ return inscricaoEstadual("rs", ie); }));
+		         "096/3205056"].every(function(ie){ return inscricaoEstadual(ie, "rs"); }));
 		test.done();
 	},
 	"Minas Gerais": function(test){
@@ -3479,7 +3479,7 @@ module.exports = {
 		         "0931777990444", "7.042.464.220.095", "4331400080278",
 		         "4801796120060", "4488821860002", "0625419930071",
 		         "0010374220026", "0620822140038", "0623110040017",
-		         "7023259570005"].every(function(ie){ return inscricaoEstadual("mg", ie); }));
+		         "7023259570005"].every(function(ie){ return inscricaoEstadual(ie, "mg"); }));
 		test.done();
 	},
 	"Espírito Santo": function(test){
@@ -6406,7 +6406,7 @@ module.exports = {
 		"081.990.10-3",
 		"081.980.20-5",
 		"080.115.59-4"
-		].every(function(ie){ return inscricaoEstadual("es", ie); }));
+		].every(function(ie){ return inscricaoEstadual(ie, "es"); }));
 		
 		test.done();
 	},
@@ -6424,7 +6424,7 @@ module.exports = {
 		         "635.010.160.112", "149.715.556.115", "353.239.330.115",
 		         "442.028.760.112", "630.002.196.118", "148.228.207.116",
 		         "513.467.779.111", "392.109.284.115", "P-01100424.3/002",
-		         "112.935.818.112", "513.055.578.114"].every(function(ie){ return inscricaoEstadual("sp", ie); }));
+		         "112.935.818.112", "513.055.578.114"].every(function(ie){ return inscricaoEstadual(ie, "sp"); }));
 		test.done();
 	},
 	"Mato Grosso do Sul": function(test){
@@ -6433,12 +6433,12 @@ module.exports = {
 		         "283190817", "283531932", "283278455",
 		         "283571810", "283420049", "283522445",
 		         "283169109", "283641886", "283525118",
-		         "283304626"].every(function(ie){ return inscricaoEstadual("ms", ie); }));
+		         "283304626"].every(function(ie){ return inscricaoEstadual(ie, "ms"); }));
 		test.done();
 	},
 	"Mato Grosso": function(test){
 		test.ok(["132.233.738", "00130000019", "131844474",
-		         "133607470", "132150964"].every(function(ie){ return inscricaoEstadual("mt", ie); }));
+		         "133607470", "132150964"].every(function(ie){ return inscricaoEstadual(ie, "mt"); }));
 		test.done();
 	},
 	"Goiás": function(test){
@@ -6446,7 +6446,7 @@ module.exports = {
 		         "100395961", "104329211", "103472517",
 		         "101126689", "103598685", "103598510",
 		         "102959579", "103014306", "105256030",
-		         "104787910", "105.14336-7"].every(function(ie){ return inscricaoEstadual("go", ie); }));
+		         "104787910", "105.14336-7"].every(function(ie){ return inscricaoEstadual(ie, "go"); }));
 		test.done();
 	},
 	"Distrito Federal": function(test){
@@ -6460,7 +6460,7 @@ module.exports = {
 		         "0730000100109",
 		         "0746893500197",
 		         "0731778300131"
-		         ].every(function(ie){ return inscricaoEstadual("df", ie); }));
+		         ].every(function(ie){ return inscricaoEstadual(ie, "df"); }));
 		test.done();
 	},
 };
