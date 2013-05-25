@@ -48,7 +48,7 @@ Para rodar os testes:
 Todas as inscrições estaduais nos testes foram obtidas publicamente na internet.  
 Se você obteve uma validação falsa para uma inscrição estadual verdadeira, pesquise no site do [SINTEGRA](http://www.sintegra.gov.br/ "Sintegra") se de fato esta inscrição estadual existe e é valida, neste caso [abra uma notificação](https://github.com/gammasoft/ie/issues/new) aqui no GitHub para apurarmos o caso. 
 
-### Implementados até agora (15 de 27 - 55.55%)
+### Implementados até agora (16 de 27 - 59.26%)
 **Região Centro-Oeste**
 - [X] Mato Grosso do Sul
 - [X] Mato Grosso
@@ -73,7 +73,7 @@ Se você obteve uma validação falsa para uma inscrição estadual verdadeira, 
 - [ ] Roraima
 - [X] Pará
 - [ ] Amapá
-- [ ] Tocantins
+- [X] Tocantins
 
 **Região Nordeste** 
 - [X] Maranhão 
