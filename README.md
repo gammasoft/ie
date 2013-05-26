@@ -39,7 +39,7 @@ A função `ie` retorna um boleano, indicando se a inscrição estadual é váli
           
  No caso de ser string vazia ou não fornecida, a função `ie` retorna um array de estados nas quais esta inscrição estadual tem um valor válido, por exemplo:  
      
-        ie("012345679") === ["pi", "es", "mt", "to"];
+        ie("012345679") === ["sc", "pi", "es", "mt", "to"];
 
  Pois a inscrição "012345679" é um inscrição estadual válida nestes estados. Útil quando se tem uma inscrição estadual mas não se sabe a qual estado ela pertece.  
  
@@ -55,7 +55,7 @@ Para rodar os testes:
 Todas as inscrições estaduais nos testes foram obtidas publicamente na internet.  
 Se você obteve uma validação falsa para uma inscrição estadual verdadeira, pesquise no site do [SINTEGRA](http://www.sintegra.gov.br/ "Sintegra") se de fato esta inscrição estadual existe e é valida, neste caso [abra uma notificação](https://github.com/gammasoft/ie/issues/new) aqui no GitHub para apurarmos o caso. 
 
-### Implementados até agora (17 de 27 - 62.97%)
+### Implementados até agora (18 de 27 - 66.66%)
 **Região Centro-Oeste**
 - [X] Mato Grosso do Sul
 - [X] Mato Grosso
@@ -70,7 +70,7 @@ Se você obteve uma validação falsa para uma inscrição estadual verdadeira, 
 
 **Região Sul**
 - [X] Paraná
-- [ ] Santa Catarina
+- [X] Santa Catarina
 - [X] Rio Grande do Sul
 
 **Região Norte**
