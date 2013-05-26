@@ -2,7 +2,7 @@ var inscricaoEstadual = require("../ie");
 
 module.exports = {
 	"Passando inscrição que serve para mais de um estado": function(test){
-		test.deepEqual(["pi", "es", "mt", "to"], inscricaoEstadual("012345679"));
+		test.deepEqual(["sc", "pi", "es", "mt", "to"], inscricaoEstadual("012345679"));
 		test.done();
 	},
 	"É possível utilizar resultado como boleano": function(test){

@@ -47,6 +47,16 @@ funcoes.rj = function(valor){
 	return valor === base + digito;
 };
 
+funcoes.sc = function(valor){
+	if(valor.length !== 9) return false;
+	
+	var base = valor.substring(0, 8);
+	var resto = mod11(base);
+	var digito = resto < 2 ? 0 : 11 - resto; 
+	
+	return valor === base + digito;
+};
+
 funcoes.pi = function(valor){
 	if(valor.length !== 9) return false;
 	
