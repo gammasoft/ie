@@ -37,6 +37,32 @@ function lookup(ie){
 
 var funcoes = {};
 
+funcoes.am = function(valor){
+	if(valor.length !== 9) return false;
+	
+	var base = valor.substring(0, 8);
+	var resto = mod11(base);
+	var digito = resto < 2 ? 0 : 11 - resto; 
+
+	return valor === base + digito;
+};
+
+funcoes.ro = function(valor){
+	if(valor.length === 9){
+		var base = valor.substring(3, 8);
+		var resto = mod11(base);
+		var digito = resto < 2 ? 0 : 11 - resto;
+		
+		return valor === valor.substring(0, 3) + base + digito;
+	}else if(valor.length === 14){
+		var base = valor.substring(0, 13);
+		var resto = mod11(base, [2, 3, 4, 5, 6, 7, 8, 9]);
+		var digito = resto < 2 ? 0 : 11 - resto;
+		
+		return valor === base + digito;
+	}else return false;
+};
+
 funcoes.rj = function(valor){
 	if(valor.length !== 8) return false;
 	
