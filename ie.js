@@ -1,36 +1,25 @@
-var estados = 
-	["ac", "al", "ap", "am",
-	 "ba", "ce", "df", "es",
-	 "go", "ma", "mt", "ms",
-	 "mg", "pa", "pb", "pr",
-	 "pe", "pi", "rj", "rn",
-	 "rs", "ro", "rr", "sc",
-	 "sp", "se", "to", ""];
-
 module.exports = validar; 
 function validar(ie, estado){
 	if(eIndefinido(estado)) estado = "";
 	estado = estado.toLowerCase();
-	if(estados.indexOf(estado.toLowerCase()) === -1) throw "O estado fornecido não é válido";
+	if(estado !== "" && !(estado in funcoes)) throw "estado não é válido";
 	
-	if(eIndefinido(ie)) throw "Inscrição estadual deve ser fornecida";
+	if(eIndefinido(ie)) throw "ie deve ser fornecida";
 	
 	if(Array.isArray(ie)) return ie.map(function(ie){ return validar(ie, estado); });
-	else if(typeof ie !== "string") throw "Inscrição estadual deve ser uma string ou um array de strings";
-	else if(ie.match(/^ISENT[O|A]$/i)) return true;
-	else ie = ie.replace(/\./g, "").replace(/-/g, "").replace(/\//g, "").replace(/\s/g, "");
+	if(typeof ie !== "string") throw "ie deve ser string ou array de strings";
+	if(ie.match(/^ISENT[O|A]$/i)) return true;
+	ie = ie.replace(/\./g, "").replace(/-/g, "").replace(/\//g, "").replace(/\s/g, "");
 	
 	if(estado === "") return lookup(ie);
-	else if(/^\d+$/.test(ie) || estado === "sp") return funcoes[estado](ie);
-	else return false;
+	if(/^\d+$/.test(ie) || estado === "sp") return funcoes[estado](ie);
+	return false;
 }
 
 function lookup(ie){
 	var resultado = [];
-	for (var estado in funcoes) {
-		if(funcoes.hasOwnProperty(estado) && funcoes[estado](ie))
-			resultado.push(estado);
-	}
+	for (var estado in funcoes)
+		if(funcoes[estado](ie)) resultado.push(estado);
 	
 	if(resultado.length === 0) return false;
 	else return resultado;
