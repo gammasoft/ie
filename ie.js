@@ -2,17 +2,17 @@ module.exports = validar;
 function validar(ie, estado){
 	if(eIndefinido(estado)) estado = "";
 	estado = estado.toLowerCase();
-	if(estado !== "" && !(estado in funcoes)) throw "estado não é válido";
+	if(estado != "" && !(estado in funcoes)) throw "estado não é válido";
 	
 	if(eIndefinido(ie)) throw "ie deve ser fornecida";
 	
 	if(Array.isArray(ie)) return ie.map(function(ie){ return validar(ie, estado); });
-	if(typeof ie !== "string") throw "ie deve ser string ou array de strings";
+	if(typeof ie != "string") throw "ie deve ser string ou array de strings";
 	if(ie.match(/^ISENT[O|A]$/i)) return true;
-	ie = ie.replace(/\./g, "").replace(/-/g, "").replace(/\//g, "").replace(/\s/g, "");
+	ie = ie.replace(/[\.|\-|\/|\s]/g, "");
 	
-	if(estado === "") return lookup(ie);
-	if(/^\d+$/.test(ie) || estado === "sp") return funcoes[estado](ie);
+	if(estado == "") return lookup(ie);
+	if(/^\d+$/.test(ie) || estado == "sp") return funcoes[estado](ie);
 	return false;
 }
 
@@ -58,7 +58,7 @@ var funcoes = {
 	se: function(valor){
 		if(tamanhoNaoE(valor)) return false;
 		
-		var base = valor.substring(0, 8);
+		var base = primeiros(valor);
 		var resto = mod(base);
 		var digito = resto < 2 ? 0 : 11 - resto; 
 
@@ -70,7 +70,7 @@ var funcoes = {
 		if(naoComecaCom(valor, "24")) return false;
 		if("03578".split("").indexOf(valor.substring(2, 3)) === -1) return false;
 		
-		var base = valor.substring(0, 8);
+		var base = primeiros(valor);
 		
 		var resto = mod(base) * 10;
 		resto = resto - (parseInt(resto/11, 10) * 11);
@@ -82,7 +82,7 @@ var funcoes = {
 	pb: function(valor){
 		if(tamanhoNaoE(valor)) return false;
 		
-		var base = valor.substring(0, 8);
+		var base = primeiros(valor);
 		var resto = mod(base);
 		var digito = resto < 2 ? 0 : 11 - resto; 
 
@@ -108,7 +108,7 @@ var funcoes = {
 		if(tamanhoNaoE(valor)) return false;
 		if(naoComecaCom(valor, "03")) return false;
 		
-		var base = valor.substring(0, 8);
+		var base = primeiros(valor);
 		
 		var p, d;
 		if(entre(base, 3000001, 3017000)) p = 5, d = 0;
@@ -129,7 +129,7 @@ var funcoes = {
 		if(tamanhoNaoE(valor)) return false;
 		if(naoComecaCom(valor, "24")) return false;
 		
-		var base = valor.substring(0, 8);
+		var base = primeiros(valor);
 		var digito = mod(base, [8, 7, 6, 5, 4, 3, 2, 1], 9);
 
 		return valor === base + digito;
@@ -138,7 +138,7 @@ var funcoes = {
 	am: function(valor){
 		if(tamanhoNaoE(valor)) return false;
 		
-		var base = valor.substring(0, 8);
+		var base = primeiros(valor);
 		var resto = mod(base);
 		var digito = resto < 2 ? 0 : 11 - resto; 
 
@@ -153,7 +153,7 @@ var funcoes = {
 			
 			return valor === valor.substring(0, 3) + base + digito;
 		}else if(tamanhoE(valor, 14)){
-			var base = valor.substring(0, 13);
+			var base = primeiros(valor, 13);
 			var resto = mod(base);
 			var digito = resto < 2 ? 0 : 11 - resto;
 			
@@ -164,7 +164,7 @@ var funcoes = {
 	rj: function(valor){
 		if(tamanhoNaoE(valor, 8)) return false;
 		
-		var base = valor.substring(0, 7);
+		var base = primeiros(valor, 7);
 		var resto = mod(base, [2, 3, 4, 5, 6, 7]);
 		var digito = resto < 2 ? 0 : 11 - resto; 
 		
@@ -174,7 +174,7 @@ var funcoes = {
 	sc: function(valor){
 		if(tamanhoNaoE(valor)) return false;
 		
-		var base = valor.substring(0, 8);
+		var base = primeiros(valor);
 		var resto = mod(base);
 		var digito = resto < 2 ? 0 : 11 - resto; 
 		
@@ -184,7 +184,7 @@ var funcoes = {
 	pi: function(valor){
 		if(tamanhoNaoE(valor)) return false;
 		
-		var base = valor.substring(0, 8);
+		var base = primeiros(valor);
 		var resto = mod(base);
 		var digito = resto < 2 ? 0 : 11 - resto; 
 		
@@ -194,7 +194,7 @@ var funcoes = {
 	es: function(valor){
 		if(tamanhoNaoE(valor)) return false;
 		
-		var base = valor.substring(0, 8);
+		var base = primeiros(valor);
 		var resto = mod(base);
 		var digito = resto < 2 ? 0 : 11 - resto; 
 		
@@ -204,7 +204,7 @@ var funcoes = {
 	pr: function(valor){
 		if(tamanhoNaoE(valor, 10)) return false;
 		
-		var base = valor.substring(0, 8);
+		var base = primeiros(valor);
 		
 		var restoPrimeiro = mod(base, [2, 3, 4, 5, 6, 7]);
 		var primeiro = 11 - restoPrimeiro >= 10 ? 0 : 11 - restoPrimeiro;
@@ -219,7 +219,7 @@ var funcoes = {
 		if(tamanhoNaoE(valor)) return false;
 		if(naoComecaCom(valor, "15")) return false;
 		
-		var base = valor.substring(0, 8);
+		var base = primeiros(valor);
 		var resto = mod(base);
 		var digito = resto < 2 ? 0 : 11 - resto; 
 		
@@ -230,7 +230,7 @@ var funcoes = {
 		if(tamanhoNaoE(valor)) return false;
 		if(naoComecaCom(valor, "06")) return false;
 		
-		var base = valor.substring(0, 8);
+		var base = primeiros(valor);
 		var resto = mod(base);
 		var digito = resto < 2 ? 0 : 11 - resto; 
 		
@@ -253,7 +253,7 @@ var funcoes = {
 		if(tamanhoNaoE(valor)) return false;
 		if(naoComecaCom(valor, "12")) return false;
 		
-		var base = valor.substring(0, 8);
+		var base = primeiros(valor);
 		var resto = mod(base);
 		var digito = resto < 2 ? 0 : 11 - resto; 
 		
@@ -264,7 +264,7 @@ var funcoes = {
 		if(tamanhoNaoE(valor, 13)) return false;
 		if(naoComecaCom(valor, "01")) return false;
 		
-		var base = valor.substring(0, 11);
+		var base = primeiros(valor, 11);
 		
 		var primeiroResto = mod(base);
 		var primeiroDigito = primeiroResto < 2 ? 0 : 11 - primeiroResto;
@@ -278,7 +278,7 @@ var funcoes = {
 	rs: function(valor){
 		if(tamanhoNaoE(valor, 10)) return false;
 		
-		var base = valor.substring(0, 9);
+		var base = primeiros(valor, 9);
 		var resto = mod(base);
 		var digito = resto < 2 ? 0 : 11 - resto; 
 		
@@ -288,7 +288,7 @@ var funcoes = {
 	mt: function(valor){
 		if(tamanhoNaoE(valor, 11) && tamanhoNaoE(valor)) return false;
 		
-		var base = tamanhoE(valor, 11) ? valor.substring(0, 10) : valor.substring(0, 8);
+		var base = tamanhoE(valor, 11) ? valor.substring(0, 10) : primeiros(valor);
 		var resto = mod(base);
 		var digito = resto <= 1 ? 0 : 11 - resto; 
 		
@@ -297,7 +297,7 @@ var funcoes = {
 
 	sp: function(valor){
 		valor = valor.toUpperCase();
-		if(valor.substr(0, 1) === "P"){
+		if(valor.substr(0, 1) == "P"){
 			if(tamanhoNaoE(valor, 13)) return false;
 			
 			var base = valor.substring(1, 9);
@@ -305,11 +305,11 @@ var funcoes = {
 			var resto = mod(base, [10, 8, 7, 6, 5, 4, 3, 1]).toString();
 			var digito = resto.length > 1 ? resto[1] : resto[0];
 			
-			return valor === "P" + base + digito + segundaBase;
+			return valor == "P" + base + digito + segundaBase;
 		}else{
 			if(tamanhoNaoE(valor, 12)) return false;
 			
-			var primeiraBase = valor.substring(0, 8);
+			var primeiraBase = primeiros(valor);
 			var segundaBase = valor.substring(9, 11);
 			
 			var primeiroResto = mod(primeiraBase, [10, 8, 7, 6, 5, 4, 3, 1]).toString(); 
@@ -325,7 +325,7 @@ var funcoes = {
 	mg: function(valor){
 		if(tamanhoNaoE(valor, 13)) return false;
 
-		var base = valor.substring(0, 11);
+		var base = primeiros(valor, 11);
 
 		var baseComZero = valor.substring(0, 3) + "0" + valor.substring(3, 11);
 		
@@ -354,7 +354,7 @@ var funcoes = {
 			if(["01", "02", "03", "99"].indexOf(valor.substring(2, 4)) === -1) return false;
 			base = valor.substring(0, 2) + valor.substring(4, 10);
 		}else
-			base = valor.substring(0, 8);
+			base = primeiros(valor);
 			
 		var resto = mod(base);
 		var digito = resto < 2 ? 0 : 11 - resto; 
@@ -366,10 +366,10 @@ var funcoes = {
 		if(tamanhoNaoE(valor)) return false;
 		if(["10", "11", "15"].indexOf(valor.substring(0, 2)) === -1) return false;
 		
-		var base = valor.substring(0, 8);
+		var base = primeiros(valor);
 		
-		if(base === "11094402"){
-			if(valor.substr(8) === "1" || valor.substr(8) === "0")
+		if(base == "11094402"){
+			if(valor.substr(8) == "1" || valor.substr(8) == "0")
 				return true;
 			else
 				return false;
@@ -392,7 +392,7 @@ var funcoes = {
 		if(tamanhoNaoE(valor)) return false;
 		if(naoComecaCom(valor, "28")) return false;
 		
-		var base = valor.substring(0, 8);
+		var base = primeiros(valor);
 		resto = mod(base);
 		
 		var digito = (resto <= 1 ? 0 : 11 - resto);
@@ -403,7 +403,7 @@ var funcoes = {
 	df: function(valor){
 		if(tamanhoNaoE(valor, 13)) return false;
 		
-		var base = valor.substring(0, 11);
+		var base = primeiros(valor, 11);
 
 		var restoPrimeiro = mod(base);
 		var primeiro = 11 - restoPrimeiro >= 10 ? 0 : 11 - restoPrimeiro;
@@ -414,6 +414,11 @@ var funcoes = {
 		return valor === base + primeiro + segundo;
 	}
 };
+
+function primeiros(string, quantidade){
+	if(eIndefinido(quantidade)) quantidade = 8;
+	return string.substring(0, quantidade);
+}
 
 function tamanhoE(string, tamanho){
 	return !tamanhoNaoE(string, tamanho);
@@ -433,7 +438,7 @@ function eIndefinido(objeto){
 }
 
 function entre(valor, limiteInferior, limiteSuperior){
-	if(typeof valor === "string") valor = parseInt(valor, 10);
+	if(typeof valor == "string") valor = parseInt(valor, 10);
 	return valor >= limiteInferior && valor <= limiteSuperior;
 }
 
