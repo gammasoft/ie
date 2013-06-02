@@ -26,10 +26,10 @@ module.exports = {
 		         "200856677", "200903845", "20.280.297-3"].every(function(ie){ return inscricaoEstadual(ie, "rn"); }));
 		test.done();
 	},
-//	"Paraíba": function(test){
-//		test.ok();
-//		test.done();
-//	},
+	"Paraíba": function(test){
+		test.ok(["06000001-5"].every(function(ie){ return inscricaoEstadual(ie, "pb"); }));
+		test.done();
+	},
 	"Pernambuco": function(test){
 		test.ok(["0192310-24", "0321418-40", "046.0814-37",
 		         "008394423", "001876406", "017050405",
@@ -37,14 +37,14 @@ module.exports = {
 		         "037333941"].every(function(ie){ return inscricaoEstadual(ie, "pe"); }));
 		test.done();
 	},
-//	"Alagoas": function(test){
-//		test.ok();
-//		test.done();
-//	},
-//	"Sergipe": function(test){
-//		test.ok();
-//		test.done();
-//	},
+	"Alagoas": function(test){
+		test.ok(["240000048"].every(function(ie){ return inscricaoEstadual(ie, "al"); }));
+		test.done();
+	},
+	"Sergipe": function(test){
+		test.ok(["27123456-3"].every(function(ie){ return inscricaoEstadual(ie, "se"); }));
+		test.done();
+	},
 //	"Bahia": function(test){
 //		test.ok();
 //		test.done();
