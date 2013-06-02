@@ -4,16 +4,22 @@ Escrito por [@renatoargh](http://www.github.com/renatoargh "Renato Gama") para [
 
 ![IE - Status da build](https://travis-ci.org/gammasoft/ie.png) &nbsp; ![IE - Status das dependencias](https://gemnasium.com/gammasoft/ie.png) &nbsp; ![IE - Última versão](https://badge.fury.io/js/inscricaoestadual.png)
 
-### Instalação
-    npm install inscricaoestadual
-
-### Utilização
 #### Node.js 
+
+Instalação
+
+    npm install inscricaoestadual
+    
+Utilização
 
     var ie = require("inscricaoestadual");
     ie(inscricaoEstadual, uf);
     
 #### Browser
+
+Instalação: faça o download [clicando aqui](https://raw.github.com/gammasoft/ie/master/ie.min.js)
+
+Utilização
 
     <script src="ie.min.js"></script>
     <script>
@@ -21,7 +27,7 @@ Escrito por [@renatoargh](http://www.github.com/renatoargh "Renato Gama") para [
         ie(inscricaoEstadual, uf);
     </script>
 
-A função `ie` retorna um boleano, indicando se a inscrição estadual é válida ou não.
+------------------
 
 #### ie(inscricaoEstadual[, uf])
  - `inscricaEstadual` uma string contendo o valor a ser validado ou um array de strings.  
