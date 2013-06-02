@@ -7,11 +7,11 @@ Escrito por [@renatoargh](http://www.github.com/renatoargh "Renato Gama") para [
 
 #### Node.js 
 
-Instalação
+Instalação:
 
     npm install inscricaoestadual
     
-Utilização
+Utilização:
 
     var ie = require("inscricaoestadual");
     ie(inscricaoEstadual, uf);
@@ -20,7 +20,7 @@ Utilização
 
 Instalação: faça o download [clicando aqui](https://raw.github.com/gammasoft/ie/master/ie.min.js)
 
-Utilização
+Utilização:
 
     <script src="ie.min.js"></script>
     <script>
