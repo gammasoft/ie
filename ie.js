@@ -37,6 +37,27 @@ function lookup(ie){
 
 var funcoes = {};
 
+funcoes.ap = function(valor){
+	if(valor.length !== 9) return false;
+	if(valor.substring(0, 2) !== "03") return false;
+	
+	var base = valor.substring(0, 8);
+	
+	var p, d;
+	if(entre(base, 3000001, 3017000)) p = 5, d = 0;
+	else if(entre(base, 3017001, 3019022)) p = 9, d = 1;
+	else p = 0, d = 0;
+	
+	var resto = mod(p + base, [2, 3, 4, 5, 6, 7, 8, 9, 1]);
+
+	var digito; 
+	if(resto === 1) digito = 0;
+	else if(resto === 0) digito = d;
+	else digito = 11 - resto;
+	
+	return valor === base + digito;
+};
+
 funcoes.rr = function(valor){
 	if(valor.length !== 9) return false;
 	if(valor.substring(0, 2) !== "24") return false;
@@ -323,7 +344,7 @@ funcoes.df = function(valor){
 };
 
 function entre(valor, limiteInferior, limiteSuperior){
-	if(typeof valor === "string") valor = parseInt(valor);
+	if(typeof valor === "string") valor = parseInt(valor, 10);
 	return valor >= limiteInferior && valor <= limiteSuperior;
 }
 

@@ -4475,10 +4475,12 @@ module.exports = {
 		         "15.270.335-7"].every(function(ie){ return inscricaoEstadual(ie, "pa"); }));
 		test.done();
 	},
-//	"Amapá": function(test){
-//		test.ok();
-//		test.done();
-//	},
+	"Amapá": function(test){
+		test.ok(["030123459", "03.002547-3", "03.015599-7",
+		         "03.031671-5", "03.023510-3", "03.015599-7",
+		         "03.027031-6", "03.028582-8", "03.028385-0"].every(function(ie){ return inscricaoEstadual(ie, "ap"); }));
+		test.done();
+	},
 	"Tocantins": function(test){
 		test.ok(["29 01 022783 6",
 		         "29.378.201-6",
