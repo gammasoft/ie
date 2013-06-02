@@ -91,7 +91,7 @@ Se você obteve uma validação falsa para uma inscrição estadual verdadeira, 
 - [X] Maranhão 
 - [X] Piauí 
 - [X] Ceará 
-- [ ] Rio Grande do Norte 
+- [X] Rio Grande do Norte 
 - [ ] Paraíba 
 - [X] Pernambuco 
 - [ ] Alagoas 
