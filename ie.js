@@ -78,7 +78,7 @@ var funcoes = {
 		
 	al: function(valor){
 		if(valor.length !== 9) return false;
-		if(valor.substring(0, 2) !== "24") return false;
+		if(naoComecaCom(valor, "24")) return false;
 		if("03578".split("").indexOf(valor.substring(2, 3)) === -1) return false;
 		
 		var base = valor.substring(0, 8);
@@ -102,7 +102,7 @@ var funcoes = {
 		
 	rn: function(valor){
 		if(valor.length !== 9 && valor.length !== 10) return false;
-		if(valor.substring(0, 2) !== "20") return false;
+		if(naoComecaCom(valor, "20")) return false;
 		
 		var base = valor.substring(0, valor.length - 1);
 		
@@ -117,7 +117,7 @@ var funcoes = {
 
 	ap: function(valor){
 		if(valor.length !== 9) return false;
-		if(valor.substring(0, 2) !== "03") return false;
+		if(naoComecaCom(valor, "03")) return false;
 		
 		var base = valor.substring(0, 8);
 		
@@ -138,7 +138,7 @@ var funcoes = {
 
 	rr: function(valor){
 		if(valor.length !== 9) return false;
-		if(valor.substring(0, 2) !== "24") return false;
+		if(naoComecaCom(valor, "24")) return false;
 		
 		var base = valor.substring(0, 8);
 		var digito = mod(base, [8, 7, 6, 5, 4, 3, 2, 1], 9);
@@ -228,7 +228,7 @@ var funcoes = {
 
 	pa: function(valor){
 		if(valor.length !== 9) return false;
-		if("15" !== valor.substring(0, 2)) return false;
+		if(naoComecaCom(valor, "15")) return false;
 		
 		var base = valor.substring(0, 8);
 		var resto = mod(base);
@@ -239,7 +239,7 @@ var funcoes = {
 
 	ce: function(valor){
 		if(valor.length !== 9) return false;
-		if("06" !== valor.substring(0, 2)) return false;
+		if(naoComecaCom(valor, "06")) return false;
 		
 		var base = valor.substring(0, 8);
 		var resto = mod(base);
@@ -262,7 +262,7 @@ var funcoes = {
 
 	ma: function(valor){
 		if(valor.length !== 9) return false;
-		if("12" !== valor.substring(0, 2)) return false;
+		if(naoComecaCom(valor, "12")) return false;
 		
 		var base = valor.substring(0, 8);
 		var resto = mod(base);
@@ -272,9 +272,8 @@ var funcoes = {
 	},
 
 	ac: function(valor){
-		//verificar: http://www.sefaz.al.gov.br/sintegra/cad_AC.asp
 		if(valor.length !== 13) return false;
-		if("01" !== valor.substring(0, 2)) return false;
+		if(naoComecaCom(valor, "01")) return false;
 		
 		var base = valor.substring(0, 11);
 		
@@ -402,8 +401,7 @@ var funcoes = {
 
 	ms: function(valor){
 		if(valor.length !== 9) return false;
-		if(valor.split("")[0] !== "2") return false;
-		if(valor.split("")[1] !== "8") return false;
+		if(naoComecaCom(valor, "28")) return false;
 		
 		var base = valor.substring(0, 8);
 		resto = mod(base);
@@ -427,6 +425,10 @@ var funcoes = {
 		return valor === base + primeiro + segundo;
 	}
 };
+
+function naoComecaCom(string, valor){
+	return string.substring(0, valor.length) !== valor;
+}
 
 function eIndefinido(objeto){
 	return typeof objeto === typeof undefined;
