@@ -37,11 +37,21 @@ function lookup(ie){
 
 var funcoes = {};
 
+funcoes.rr = function(valor){
+	if(valor.length !== 9) return false;
+	if(valor.substring(0, 2) !== "24") return false;
+	
+	var base = valor.substring(0, 8);
+	var digito = mod(base, [8, 7, 6, 5, 4, 3, 2, 1], 9);
+
+	return valor === base + digito;
+};
+
 funcoes.am = function(valor){
 	if(valor.length !== 9) return false;
 	
 	var base = valor.substring(0, 8);
-	var resto = mod11(base);
+	var resto = mod(base);
 	var digito = resto < 2 ? 0 : 11 - resto; 
 
 	return valor === base + digito;
@@ -50,13 +60,13 @@ funcoes.am = function(valor){
 funcoes.ro = function(valor){
 	if(valor.length === 9){
 		var base = valor.substring(3, 8);
-		var resto = mod11(base);
+		var resto = mod(base);
 		var digito = resto < 2 ? 0 : 11 - resto;
 		
 		return valor === valor.substring(0, 3) + base + digito;
 	}else if(valor.length === 14){
 		var base = valor.substring(0, 13);
-		var resto = mod11(base, [2, 3, 4, 5, 6, 7, 8, 9]);
+		var resto = mod(base, [2, 3, 4, 5, 6, 7, 8, 9]);
 		var digito = resto < 2 ? 0 : 11 - resto;
 		
 		return valor === base + digito;
@@ -67,7 +77,7 @@ funcoes.rj = function(valor){
 	if(valor.length !== 8) return false;
 	
 	var base = valor.substring(0, 7);
-	var resto = mod11(base, [2, 3, 4, 5, 6, 7]);
+	var resto = mod(base, [2, 3, 4, 5, 6, 7]);
 	var digito = resto < 2 ? 0 : 11 - resto; 
 	
 	return valor === base + digito;
@@ -77,7 +87,7 @@ funcoes.sc = function(valor){
 	if(valor.length !== 9) return false;
 	
 	var base = valor.substring(0, 8);
-	var resto = mod11(base);
+	var resto = mod(base);
 	var digito = resto < 2 ? 0 : 11 - resto; 
 	
 	return valor === base + digito;
@@ -87,7 +97,7 @@ funcoes.pi = function(valor){
 	if(valor.length !== 9) return false;
 	
 	var base = valor.substring(0, 8);
-	var resto = mod11(base);
+	var resto = mod(base);
 	var digito = resto < 2 ? 0 : 11 - resto; 
 	
 	return valor === base + digito;
@@ -97,7 +107,7 @@ funcoes.es = function(valor){
 	if(valor.length !== 9) return false;
 	
 	var base = valor.substring(0, 8);
-	var resto = mod11(base);
+	var resto = mod(base);
 	var digito = resto < 2 ? 0 : 11 - resto; 
 	
 	return valor === base + digito;
@@ -108,10 +118,10 @@ funcoes.pr = function(valor){
 	
 	var base = valor.substring(0, 8);
 	
-	var restoPrimeiro = mod11(base, [2, 3, 4, 5, 6, 7]);
+	var restoPrimeiro = mod(base, [2, 3, 4, 5, 6, 7]);
 	var primeiro = 11 - restoPrimeiro >= 10 ? 0 : 11 - restoPrimeiro;
 	
-	var restoSegundo = mod11(base + primeiro, [2, 3, 4, 5, 6, 7]);
+	var restoSegundo = mod(base + primeiro, [2, 3, 4, 5, 6, 7]);
 	var segundo = 11 - restoSegundo >= 10 ? 0 : 11 - restoSegundo;
 	
 	return valor === base + primeiro + segundo;
@@ -122,7 +132,7 @@ funcoes.pa = function(valor){
 	if("15" !== valor.substring(0, 2)) return false;
 	
 	var base = valor.substring(0, 8);
-	var resto = mod11(base);
+	var resto = mod(base);
 	var digito = resto < 2 ? 0 : 11 - resto; 
 	
 	return valor === base + digito;
@@ -133,7 +143,7 @@ funcoes.ce = function(valor){
 	if("06" !== valor.substring(0, 2)) return false;
 	
 	var base = valor.substring(0, 8);
-	var resto = mod11(base);
+	var resto = mod(base);
 	var digito = resto < 2 ? 0 : 11 - resto; 
 	
 	return valor === base + digito;
@@ -142,10 +152,10 @@ funcoes.ce = function(valor){
 funcoes.pe = function(valor){
 	var base = valor.substring(0, valor.length - 2);
 	
-	var restoPrimeiro = mod11(base);
+	var restoPrimeiro = mod(base);
 	var primeiro = 11 - restoPrimeiro >= 10 ? 0 : 11 - restoPrimeiro;
 	
-	var restoSegundo = mod11(base + primeiro);
+	var restoSegundo = mod(base + primeiro);
 	var segundo = 11 - restoSegundo >= 10 ? 0 : 11 - restoSegundo;
 	
 	return valor === base + primeiro + segundo;
@@ -156,7 +166,7 @@ funcoes.ma = function(valor){
 	if("12" !== valor.substring(0, 2)) return false;
 	
 	var base = valor.substring(0, 8);
-	var resto = mod11(base);
+	var resto = mod(base);
 	var digito = resto < 2 ? 0 : 11 - resto; 
 	
 	return valor === base + digito;
@@ -169,10 +179,10 @@ funcoes.ac = function(valor){
 	
 	var base = valor.substring(0, 11);
 	
-	var primeiroResto = mod11(base);
+	var primeiroResto = mod(base);
 	var primeiroDigito = primeiroResto < 2 ? 0 : 11 - primeiroResto;
 	
-	var segundoResto = mod11(base + primeiroDigito);
+	var segundoResto = mod(base + primeiroDigito);
 	var segundoDigito = segundoResto < 2 ? 0 : 11 - segundoResto;
 	
 	return valor === base + primeiroDigito + segundoDigito;
@@ -182,7 +192,7 @@ funcoes.rs = function(valor){
 	if(valor.length !== 10) return false;
 	
 	var base = valor.substring(0, 9);
-	var resto = mod11(base);
+	var resto = mod(base);
 	var digito = resto < 2 ? 0 : 11 - resto; 
 	
 	return valor === base + digito;
@@ -192,7 +202,7 @@ funcoes.mt = function(valor){
 	if(valor.length !== 11 && valor.length !== 9) return false;
 	
 	var base = valor.length === 11 ? valor.substring(0, 10) : valor.substring(0, 8);
-	var resto = mod11(base);
+	var resto = mod(base);
 	var digito = resto <= 1 ? 0 : 11 - resto; 
 	
 	return valor === base + digito;
@@ -205,7 +215,7 @@ funcoes.sp = function(valor){
 		
 		var base = valor.substring(1, 9);
 		var segundaBase = valor.substring(10, 13);
-		var resto = mod11(base, [10, 8, 7, 6, 5, 4, 3, 1]).toString();
+		var resto = mod(base, [10, 8, 7, 6, 5, 4, 3, 1]).toString();
 		var digito = resto.length > 1 ? resto[1] : resto[0];
 		
 		return valor === "P" + base + digito + segundaBase;
@@ -215,10 +225,10 @@ funcoes.sp = function(valor){
 		var primeiraBase = valor.substring(0, 8);
 		var segundaBase = valor.substring(9, 11);
 		
-		var primeiroResto = mod11(primeiraBase, [10, 8, 7, 6, 5, 4, 3, 1]).toString(); 
+		var primeiroResto = mod(primeiraBase, [10, 8, 7, 6, 5, 4, 3, 1]).toString(); 
 		var primeiro = primeiroResto.length > 1 ? primeiroResto[1] : primeiroResto[0];
 		
-		var segundoResto = mod11(primeiraBase + primeiro + segundaBase, [2, 3, 4, 5, 6, 7, 8, 9, 10]).toString();
+		var segundoResto = mod(primeiraBase + primeiro + segundaBase, [2, 3, 4, 5, 6, 7, 8, 9, 10]).toString();
 		var segundo = segundoResto.length > 1 ? segundoResto[1] : segundoResto[0];
 		
 		return valor === primeiraBase + primeiro + segundaBase + segundo;
@@ -237,7 +247,7 @@ funcoes.mg = function(valor){
 	var primeiro = ((parseInt(produtorioLiteral / 10) + 1) * 10) - produtorioLiteral;
 	if(primeiro === 10) primeiro = 0;
 	
-	var resto = mod11(base + primeiro, [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
+	var resto = mod(base + primeiro, [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
 	var segundo = (resto <= 1 ? 0 : 11 - resto);
 	
 	return valor === base + primeiro + segundo;
@@ -253,7 +263,7 @@ funcoes.to = function(valor){
 	}else
 		base = valor.substring(0, 8);
 		
-	var resto = mod11(base);
+	var resto = mod(base);
 	var digito = resto < 2 ? 0 : 11 - resto; 
 	
 	return valor === valor.substring(0, valor.length - 1) + digito;
@@ -272,7 +282,7 @@ funcoes.go = function(valor){
 			return false;
 	}
 	
-	var resto = mod11(base);
+	var resto = mod(base);
 	
 	var digito = null;
 	if(resto === 0) digito = 0;
@@ -291,7 +301,7 @@ funcoes.ms = function(valor){
 	if(valor.split("")[1] !== "8") return false;
 	
 	var base = valor.substring(0, 8);
-	resto = mod11(base);
+	resto = mod(base);
 	
 	var digito = (resto <= 1 ? 0 : 11 - resto);
 	
@@ -303,10 +313,10 @@ funcoes.df = function(valor){
 	
 	var base = valor.substring(0, 11);
 
-	var restoPrimeiro = mod11(base);
+	var restoPrimeiro = mod(base);
 	var primeiro = 11 - restoPrimeiro >= 10 ? 0 : 11 - restoPrimeiro;
 	
-	var restoSegundo = mod11(base + primeiro);
+	var restoSegundo = mod(base + primeiro);
 	var segundo = 11 - restoSegundo >= 10 ? 0 : 11 - restoSegundo;
 	
 	return valor === base + primeiro + segundo;
@@ -330,7 +340,8 @@ function mod11literal(valor, multiplicadores){
 	}, 0);
 }
 
-function mod11(valor, multiplicadores){
+function mod(valor, multiplicadores, divisor){
+	if(typeof divisor === "undefined") divisor = 11;
 	if(typeof multiplicadores === "undefined")
 		multiplicadores = [2, 3, 4, 5, 6, 7, 8, 9];
 		
@@ -338,5 +349,5 @@ function mod11(valor, multiplicadores){
 	return valor.split("").reduceRight(function(anterior, atual){
 		if(i > multiplicadores.length - 1) i = 0;
 		return (multiplicadores[i++] * parseInt(atual)) + anterior; 
-	}, 0) % 11;
+	}, 0) % divisor;
 }
