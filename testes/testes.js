@@ -45,10 +45,12 @@ module.exports = {
 		test.ok(["27123456-3"].every(function(ie){ return inscricaoEstadual(ie, "se"); }));
 		test.done();
 	},
-//	"Bahia": function(test){
-//		test.ok();
-//		test.done();
-//	},
+	"Bahia": function(test){
+		test.ok(["123456-63", "612345-57", "1000003-06",
+		         "70416735", "62656865", "44181372",
+		         "66.336.884", "66.994.360"].every(function(ie){ return inscricaoEstadual(ie, "ba"); }));
+		test.done();
+	},
 	"Rondônia": function(test){                        
 		test.ok(["101.62521-3", "0000000062521-3"].every(function(ie){ return inscricaoEstadual(ie, "ro"); }));
 		test.done();

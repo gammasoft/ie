@@ -2,7 +2,7 @@ var inscricaoEstadual = require("../ie");
 
 module.exports = {
 	"Passando inscrição que serve para mais de um estado": function(test){
-		test.deepEqual(["am", "ro", "sc", "pi", "es", "mt", "to"], inscricaoEstadual("012345679"));
+		test.deepEqual(["se", "pb", "am", "ro", "sc", "pi", "es", "mt", "to"], inscricaoEstadual("012345679"));
 		test.done();
 	},
 	"É possível utilizar resultado como boleano": function(test){
@@ -39,6 +39,14 @@ module.exports = {
 	},
 	"Verifica que retorna array de resultados caso se passe array de inscrições estaduais": function(test){
 		test.deepEqual([false, true], inscricaoEstadual(["0745770500212", "P-01100424.3/002"], "sp"));
+		test.done();
+	},
+	"Retorna verdadeiro se é passado valor 'isento' independente de case": function(test){
+		test.ok(inscricaoEstadual("isento") && inscricaoEstadual("ISENTO") && inscricaoEstadual("iseNTO") && inscricaoEstadual("ISEnto"));
+		test.done();
+	},
+	"Retorna verdadeiro se é passado valor 'isenta' independente de case": function(test){
+		test.ok(inscricaoEstadual("isenta") && inscricaoEstadual("ISENTA") && inscricaoEstadual("iseNTA") && inscricaoEstadual("ISEnta"));
 		test.done();
 	}
 };

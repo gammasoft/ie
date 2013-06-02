@@ -17,6 +17,7 @@ function validar(ie, estado){
 	
 	if(Array.isArray(ie)) return ie.map(function(ie){ return validar(ie, estado); });
 	else if(typeof ie !== "string") throw new Error("Inscrição estadual deve ser uma string ou um array de strings");
+	else if(ie.match(/^ISENT[O|A]$/i)) return true;
 	else ie = ie.replace(/\./g, "").replace(/-/g, "").replace(/\//g, "").replace(/\s/g, "");
 	
 	if(estado === "") return lookup(ie);
@@ -36,6 +37,35 @@ function lookup(ie){
 }
 
 var funcoes = {
+	ba: function(valor){
+		if(valor.length !== 8 && valor.length !== 9) return false;
+		
+		var base = valor.substring(0, valor.length - 2);
+		var primeiroDigito, segundoDigito;
+		
+		var segundoMultiplicador = [2, 3, 4, 5, 6, 7];
+		if(valor.length === 9) segundoMultiplicador.push(8);
+		
+		var primeiroMultiplicador = [2, 3, 4, 5, 6, 7, 8];
+		if(valor.length === 9) primeiroMultiplicador.push(9);
+		
+		if(["0", "1", "2", "3", "4", "5", "8"].indexOf(valor.substring(0, 1)) !== -1){
+			var segundoResto = mod(base, segundoMultiplicador, 10);
+			segundoDigito = segundoResto === 0 ? 0 : 10 - segundoResto;
+			
+			var primeiroResto = mod(base + segundoDigito, primeiroMultiplicador, 10);
+			primeiroDigito = primeiroResto === 0 ? 0 : 10 - primeiroResto;
+		}else{
+			var segundoResto = mod(base, segundoMultiplicador);
+			segundoDigito = segundoResto < 2 ? 0 : 11 - segundoResto;
+			
+			var primeiroResto = mod(base + segundoDigito, primeiroMultiplicador);
+			primeiroDigito = primeiroResto < 2 ? 0 : 11 - primeiroResto;
+		}
+		
+		return valor === base + primeiroDigito + segundoDigito;
+	},
+		
 	se: function(valor){
 		if(valor.length !== 9) return false;
 		
