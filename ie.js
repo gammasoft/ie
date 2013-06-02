@@ -341,7 +341,13 @@ var funcoes = {
 
 		var baseComZero = valor.substring(0, 3) + "0" + valor.substring(3, 11);
 		
-		var produtorioLiteral = mod11literal(baseComZero, [2, 1]);
+		var i = 0;
+		var produtorioLiteral = baseComZero.split("").reduceRight(function(anterior, atual){
+			if(i > [2, 1].length - 1) i = 0;
+			return ([2, 1][i++] * parseInt(atual, 10)).toString() + anterior.toString(); 
+		}, "").split("").reduce(function(anterior, atual){
+			return anterior + parseInt(atual);
+		}, 0);
 		
 		var primeiro = ((parseInt(produtorioLiteral / 10) + 1) * 10) - produtorioLiteral;
 		if(primeiro === 10) primeiro = 0;
@@ -425,19 +431,6 @@ var funcoes = {
 function entre(valor, limiteInferior, limiteSuperior){
 	if(typeof valor === "string") valor = parseInt(valor, 10);
 	return valor >= limiteInferior && valor <= limiteSuperior;
-}
-
-function mod11literal(valor, multiplicadores){
-	if(typeof multiplicadores === "undefined")
-		multiplicadores = [2, 3, 4, 5, 6, 7, 8, 9];
-		
-	var i = 0;
-	return valor.split("").reduceRight(function(anterior, atual){
-		if(i > multiplicadores.length - 1) i = 0;
-		return (multiplicadores[i++] * parseInt(atual, 10)).toString() + anterior.toString(); 
-	}, "").split("").reduce(function(anterior, atual){
-		return anterior + parseInt(atual);
-	}, 0);
 }
 
 function mod(valor, multiplicadores, divisor){
