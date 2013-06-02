@@ -9,11 +9,11 @@ var estados =
 
 module.exports = validar; 
 function validar(ie, estado){
-	if(typeof estado === "undefined") estado = "";
+	if(eIndefinido(estado)) estado = "";
 	estado = estado.toLowerCase();
 	if(estados.indexOf(estado.toLowerCase()) === -1) throw new Error("O estado fornecido não é válido");
 	
-	if(typeof ie === "undefined") throw new Error("Inscrição estadual deve ser fornecida");
+	if(eIndefinido(ie)) throw new Error("Inscrição estadual deve ser fornecida");
 	
 	if(Array.isArray(ie)) return ie.map(function(ie){ return validar(ie, estado); });
 	else if(typeof ie !== "string") throw new Error("Inscrição estadual deve ser uma string ou um array de strings");
@@ -428,14 +428,18 @@ var funcoes = {
 	}
 };
 
+function eIndefinido(objeto){
+	return typeof objeto === typeof undefined;
+}
+
 function entre(valor, limiteInferior, limiteSuperior){
 	if(typeof valor === "string") valor = parseInt(valor, 10);
 	return valor >= limiteInferior && valor <= limiteSuperior;
 }
 
 function mod(valor, multiplicadores, divisor){
-	if(typeof divisor === "undefined") divisor = 11;
-	if(typeof multiplicadores === "undefined")
+	if(eIndefinido(divisor)) divisor = 11;
+	if(eIndefinido(multiplicadores))
 		multiplicadores = [2, 3, 4, 5, 6, 7, 8, 9];
 		
 	var i = 0;
