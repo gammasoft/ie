@@ -58,7 +58,7 @@ Para rodar os testes:
     npm test
 
 Todas as inscrições estaduais nos testes foram obtidas publicamente na internet.  
-Se você obteve uma validação falsa para uma inscrição estadual verdadeira, pesquise no site do [SINTEGRA](http://www.sintegra.gov.br/ "Sintegra") se de fato esta inscrição estadual existe e é valida, neste caso [abra uma notificação](https://github.com/gammasoft/ie/issues/new) aqui no GitHub para apurarmos o caso. 
+Se você obteve uma validação falsa para uma inscrição estadual verdadeira, pesquise no site do [Sintegra](http://www.sintegra.gov.br/ "Sintegra") se de fato esta inscrição estadual existe e é valida, neste caso [abra uma notificação](https://github.com/gammasoft/ie/issues/new) aqui no GitHub para apurarmos o caso. 
 
 -----------------------------------------
 
