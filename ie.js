@@ -79,7 +79,7 @@ var funcoes = {
 	al: function(valor){
 		if(valor.length !== 9) return false;
 		if(valor.substring(0, 2) !== "24") return false;
-		if(["0", "3", "5", "7", "8"].indexOf(valor.substring(2, 3)) === -1) return false;
+		if("03578".split("").indexOf(valor.substring(2, 3)) === -1) return false;
 		
 		var base = valor.substring(0, 8);
 		
