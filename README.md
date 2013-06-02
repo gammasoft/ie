@@ -49,7 +49,7 @@ Utilização:
      
         ie("012345679") === ["se", "pb", "am", "ro", "sc", "pi", "es", "mt", "to"];
   
- Quando o estado é fornecido, a validação é otimizada pois o valor da inscrição estadual é testada apenas contra a regra do estado especificado e a fução retorna estritamente `true` ou `false`.
+ Quando o estado é fornecido, a validação é otimizada pois o valor da inscrição estadual é testada apenas contra a regra do estado especificado e a função retorna estritamente `true` ou `false`.
  
 ### Testes
 
