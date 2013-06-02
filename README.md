@@ -17,7 +17,7 @@ Escrito por [@renatoargh](http://www.github.com/renatoargh "Renato Gama") para [
 
     <script src="ie.min.js"></script>
     <script>
-        var ie = require("./ie");
+        var ie = require("ie");
         ie(inscricaoEstadual, uf);
     </script>
 
