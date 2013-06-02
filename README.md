@@ -28,11 +28,12 @@ Utilização:
         ie(inscricaoEstadual, uf);
     </script>
 
-------------------
+-----------------------------------------
 
 #### ie(inscricaoEstadual[, uf])
  - `inscricaEstadual` uma string contendo o valor a ser validado ou um array de strings.  
- Pode-se receber uma string com máscara, pois os separadores `[".", "-", "/", " "]` são desconsiderados para a validação.
+ Pode-se receber uma string com máscara, pois os separadores `[".", "-", "/", " "]` são desconsiderados para a validação.  
+ Caso seja passado o valor "isento" ou "isenta" (independente de case maiúsculo ou minúsculo) é retornado `true`.
 
  - `uf` é opcional, mas se fornecida pode ser `""` (string vazia) ou deve ser uma string entre um dos valores  
 
@@ -46,7 +47,7 @@ Utilização:
           
  No caso de ser string vazia ou não fornecida, a função `ie` retorna um array de estados nas quais esta inscrição estadual tem um valor válido, útil quando se tem uma inscrição estadual mas não se sabe a qual estado ela pertece, por exemplo:  
      
-        ie("012345679") === ["sc", "pi", "es", "mt", "to"];
+        ie("012345679") === ["se", "pb", "am", "ro", "sc", "pi", "es", "mt", "to"];
   
  Quando o estado é fornecido, a validação é otimizada pois o valor da inscrição estadual é testada apenas contra a regra do estado especificado e a fução retorna estritamente `true` ou `false`.
  
@@ -54,54 +55,12 @@ Utilização:
 
 Para rodar os testes:
 
-    npm install //caso você ainda não tenha o nodeunit
     npm test
 
 Todas as inscrições estaduais nos testes foram obtidas publicamente na internet.  
 Se você obteve uma validação falsa para uma inscrição estadual verdadeira, pesquise no site do [SINTEGRA](http://www.sintegra.gov.br/ "Sintegra") se de fato esta inscrição estadual existe e é valida, neste caso [abra uma notificação](https://github.com/gammasoft/ie/issues/new) aqui no GitHub para apurarmos o caso. 
 
-### Implementados até agora (23 de 27 - 85,18%)
-**Região Centro-Oeste**
-- [X] Mato Grosso do Sul
-- [X] Mato Grosso
-- [X] Goiás
-- [X] Distrito Federal
-
-**Região Sudeste** 
-- [X] Minas Gerais 
-- [X] Espírito Santo 
-- [X] Rio de Janeiro 
-- [X] São Paulo
-
-**Região Sul**
-- [X] Paraná
-- [X] Santa Catarina
-- [X] Rio Grande do Sul
-
-**Região Norte**
-- [X] Rondônia
-- [X] Acre
-- [X] Amazonas
-- [X] Roraima
-- [X] Pará
-- [X] Amapá
-- [X] Tocantins
-
-**Região Nordeste** 
-- [X] Maranhão 
-- [X] Piauí 
-- [X] Ceará 
-- [X] Rio Grande do Norte 
-- [ ] Paraíba 
-- [X] Pernambuco 
-- [ ] Alagoas 
-- [ ] Sergipe 
-- [ ] Bahia  
-
 -----------------------------------------
-
-#### Faça uma doação :)
-[![Faça uma doação!](https://www.paypalobjects.com/pt_BR/BR/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/br/cgi-bin/webscr?cmd=_flow&SESSION=qNGRiSLjATOZ2vcKDXVkTmXi5nz5yqBQNI2wQ-qmHQ4wtKUIIg9Px9HR3QG&dispatch=5885d80a13c0db1f8e263663d3faee8d14f86393d55a810282b64afed84968ec)
 
 #### Licença BSD
 
