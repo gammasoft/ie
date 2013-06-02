@@ -21,7 +21,7 @@ function lookup(ie){
 	for (var estado in funcoes)
 		if(funcoes[estado](ie)) resultado.push(estado);
 	
-	if(resultado.length === 0) return false;
+	if(tamanhoE(resultado, 0)) return false;
 	else return resultado;
 }
 
@@ -33,10 +33,10 @@ var funcoes = {
 		var primeiroDigito, segundoDigito;
 		
 		var segundoMultiplicador = [2, 3, 4, 5, 6, 7];
-		if(valor.length === 9) segundoMultiplicador.push(8);
+		if(tamanhoE(valor, 9)) segundoMultiplicador.push(8);
 		
 		var primeiroMultiplicador = [2, 3, 4, 5, 6, 7, 8];
-		if(valor.length === 9) primeiroMultiplicador.push(9);
+		if(tamanhoE(valor, 9)) primeiroMultiplicador.push(9);
 		
 		if("0123458".split("").indexOf(valor.substring(0, 1)) !== -1){
 			var segundoResto = mod(base, segundoMultiplicador, 10);
@@ -96,7 +96,7 @@ var funcoes = {
 		var base = valor.substring(0, valor.length - 1);
 		
 		var multiplicadores = [2, 3, 4, 5, 6, 7, 8, 9];
-		if(valor.length === 10) multiplicadores.push(10);
+		if(tamanhoE(valor, 10)) multiplicadores.push(10);
 		
 		var resto = (mod(base, multiplicadores) * 10) % 11;
 		var digito = resto === 10 ? 0 : resto; 
@@ -146,13 +146,13 @@ var funcoes = {
 	},
 
 	ro: function(valor){
-		if(valor.length === 9){
+		if(tamanhoE(valor, 9)){
 			var base = valor.substring(3, 8);
 			var resto = mod(base);
 			var digito = resto < 2 ? 0 : 11 - resto;
 			
 			return valor === valor.substring(0, 3) + base + digito;
-		}else if(valor.length === 14){
+		}else if(tamanhoE(valor, 14)){
 			var base = valor.substring(0, 13);
 			var resto = mod(base);
 			var digito = resto < 2 ? 0 : 11 - resto;
@@ -288,7 +288,7 @@ var funcoes = {
 	mt: function(valor){
 		if(tamanhoNaoE(valor, 11) && tamanhoNaoE(valor)) return false;
 		
-		var base = valor.length === 11 ? valor.substring(0, 10) : valor.substring(0, 8);
+		var base = tamanhoE(valor, 11) ? valor.substring(0, 10) : valor.substring(0, 8);
 		var resto = mod(base);
 		var digito = resto <= 1 ? 0 : 11 - resto; 
 		
@@ -350,7 +350,7 @@ var funcoes = {
 		if(tamanhoNaoE(valor) && tamanhoNaoE(valor, 11)) return false;
 		
 		var base = "";
-		if(valor.length === 11){
+		if(tamanhoE(valor, 11)){
 			if(["01", "02", "03", "99"].indexOf(valor.substring(2, 4)) === -1) return false;
 			base = valor.substring(0, 2) + valor.substring(4, 10);
 		}else
@@ -414,6 +414,10 @@ var funcoes = {
 		return valor === base + primeiro + segundo;
 	}
 };
+
+function tamanhoE(string, tamanho){
+	return !tamanhoNaoE(string, tamanho);
+}
 
 function tamanhoNaoE(string, tamanho){
 	if(eIndefinido(tamanho)) tamanho = 9;
