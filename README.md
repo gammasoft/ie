@@ -43,12 +43,10 @@ Utilização
           "rs", "ro", "rr", "sc",
           "sp", "se", "to"]
           
- No caso de ser string vazia ou não fornecida, a função `ie` retorna um array de estados nas quais esta inscrição estadual tem um valor válido, por exemplo:  
+ No caso de ser string vazia ou não fornecida, a função `ie` retorna um array de estados nas quais esta inscrição estadual tem um valor válido, útil quando se tem uma inscrição estadual mas não se sabe a qual estado ela pertece, por exemplo:  
      
         ie("012345679") === ["sc", "pi", "es", "mt", "to"];
-
- Pois a inscrição "012345679" é um inscrição estadual válida nestes estados. Útil quando se tem uma inscrição estadual mas não se sabe a qual estado ela pertece.  
- 
+  
  Quando o estado é fornecido, a validação é otimizada pois o valor da inscrição estadual é testada apenas contra a regra do estado especificado e a fução retorna estritamente `true` ou `false`.
  
 ### Testes
