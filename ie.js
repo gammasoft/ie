@@ -38,7 +38,7 @@ function lookup(ie){
 
 var funcoes = {
 	ba: function(valor){
-		if(valor.length !== 8 && valor.length !== 9) return false;
+		if(tamanhoNaoE(valor, 8) && tamanhoNaoE(valor)) return false;
 		
 		var base = valor.substring(0, valor.length - 2);
 		var primeiroDigito, segundoDigito;
@@ -67,7 +67,7 @@ var funcoes = {
 	},
 		
 	se: function(valor){
-		if(valor.length !== 9) return false;
+		if(tamanhoNaoE(valor)) return false;
 		
 		var base = valor.substring(0, 8);
 		var resto = mod(base);
@@ -77,7 +77,7 @@ var funcoes = {
 	},
 		
 	al: function(valor){
-		if(valor.length !== 9) return false;
+		if(tamanhoNaoE(valor)) return false;
 		if(naoComecaCom(valor, "24")) return false;
 		if("03578".split("").indexOf(valor.substring(2, 3)) === -1) return false;
 		
@@ -91,7 +91,7 @@ var funcoes = {
 	},
 		
 	pb: function(valor){
-		if(valor.length !== 9) return false;
+		if(tamanhoNaoE(valor)) return false;
 		
 		var base = valor.substring(0, 8);
 		var resto = mod(base);
@@ -101,7 +101,7 @@ var funcoes = {
 	},
 		
 	rn: function(valor){
-		if(valor.length !== 9 && valor.length !== 10) return false;
+		if(tamanhoNaoE(valor) && tamanhoNaoE(valor, 10)) return false;
 		if(naoComecaCom(valor, "20")) return false;
 		
 		var base = valor.substring(0, valor.length - 1);
@@ -116,7 +116,7 @@ var funcoes = {
 	},
 
 	ap: function(valor){
-		if(valor.length !== 9) return false;
+		if(tamanhoNaoE(valor)) return false;
 		if(naoComecaCom(valor, "03")) return false;
 		
 		var base = valor.substring(0, 8);
@@ -137,7 +137,7 @@ var funcoes = {
 	},
 
 	rr: function(valor){
-		if(valor.length !== 9) return false;
+		if(tamanhoNaoE(valor)) return false;
 		if(naoComecaCom(valor, "24")) return false;
 		
 		var base = valor.substring(0, 8);
@@ -147,7 +147,7 @@ var funcoes = {
 	},
 
 	am: function(valor){
-		if(valor.length !== 9) return false;
+		if(tamanhoNaoE(valor)) return false;
 		
 		var base = valor.substring(0, 8);
 		var resto = mod(base);
@@ -173,7 +173,7 @@ var funcoes = {
 	},
 
 	rj: function(valor){
-		if(valor.length !== 8) return false;
+		if(tamanhoNaoE(valor, 8)) return false;
 		
 		var base = valor.substring(0, 7);
 		var resto = mod(base, [2, 3, 4, 5, 6, 7]);
@@ -183,7 +183,7 @@ var funcoes = {
 	},
 
 	sc: function(valor){
-		if(valor.length !== 9) return false;
+		if(tamanhoNaoE(valor)) return false;
 		
 		var base = valor.substring(0, 8);
 		var resto = mod(base);
@@ -193,7 +193,7 @@ var funcoes = {
 	},
 
 	pi: function(valor){
-		if(valor.length !== 9) return false;
+		if(tamanhoNaoE(valor)) return false;
 		
 		var base = valor.substring(0, 8);
 		var resto = mod(base);
@@ -203,7 +203,7 @@ var funcoes = {
 	},
 
 	es: function(valor){
-		if(valor.length !== 9) return false;
+		if(tamanhoNaoE(valor)) return false;
 		
 		var base = valor.substring(0, 8);
 		var resto = mod(base);
@@ -213,7 +213,7 @@ var funcoes = {
 	},
 
 	pr: function(valor){
-		if(valor.length !== 10) return false;
+		if(tamanhoNaoE(valor, 10)) return false;
 		
 		var base = valor.substring(0, 8);
 		
@@ -227,7 +227,7 @@ var funcoes = {
 	},
 
 	pa: function(valor){
-		if(valor.length !== 9) return false;
+		if(tamanhoNaoE(valor)) return false;
 		if(naoComecaCom(valor, "15")) return false;
 		
 		var base = valor.substring(0, 8);
@@ -238,7 +238,7 @@ var funcoes = {
 	},
 
 	ce: function(valor){
-		if(valor.length !== 9) return false;
+		if(tamanhoNaoE(valor)) return false;
 		if(naoComecaCom(valor, "06")) return false;
 		
 		var base = valor.substring(0, 8);
@@ -261,7 +261,7 @@ var funcoes = {
 	},
 
 	ma: function(valor){
-		if(valor.length !== 9) return false;
+		if(tamanhoNaoE(valor)) return false;
 		if(naoComecaCom(valor, "12")) return false;
 		
 		var base = valor.substring(0, 8);
@@ -272,7 +272,7 @@ var funcoes = {
 	},
 
 	ac: function(valor){
-		if(valor.length !== 13) return false;
+		if(tamanhoNaoE(valor, 13)) return false;
 		if(naoComecaCom(valor, "01")) return false;
 		
 		var base = valor.substring(0, 11);
@@ -287,7 +287,7 @@ var funcoes = {
 	},
 
 	rs: function(valor){
-		if(valor.length !== 10) return false;
+		if(tamanhoNaoE(valor, 10)) return false;
 		
 		var base = valor.substring(0, 9);
 		var resto = mod(base);
@@ -297,7 +297,7 @@ var funcoes = {
 	},
 
 	mt: function(valor){
-		if(valor.length !== 11 && valor.length !== 9) return false;
+		if(tamanhoNaoE(valor, 11) && tamanhoNaoE(valor)) return false;
 		
 		var base = valor.length === 11 ? valor.substring(0, 10) : valor.substring(0, 8);
 		var resto = mod(base);
@@ -309,7 +309,7 @@ var funcoes = {
 	sp: function(valor){
 		valor = valor.toUpperCase();
 		if(valor.substr(0, 1) === "P"){
-			if(valor.length !== 13) return false;
+			if(tamanhoNaoE(valor, 13)) return false;
 			
 			var base = valor.substring(1, 9);
 			var segundaBase = valor.substring(10, 13);
@@ -318,7 +318,7 @@ var funcoes = {
 			
 			return valor === "P" + base + digito + segundaBase;
 		}else{
-			if(valor.length !== 12) return false;
+			if(tamanhoNaoE(valor, 12)) return false;
 			
 			var primeiraBase = valor.substring(0, 8);
 			var segundaBase = valor.substring(9, 11);
@@ -334,7 +334,7 @@ var funcoes = {
 	},
 
 	mg: function(valor){
-		if(valor.length !== 13) return false;
+		if(tamanhoNaoE(valor, 13)) return false;
 
 		var base = valor.substring(0, 11);
 
@@ -358,7 +358,7 @@ var funcoes = {
 	},
 
 	to: function(valor){
-		if(valor.length !== 9 && valor.length !== 11) return false;
+		if(tamanhoNaoE(valor) && tamanhoNaoE(valor, 11)) return false;
 		
 		var base = "";
 		if(valor.length === 11){
@@ -374,7 +374,7 @@ var funcoes = {
 	},
 
 	go: function(valor){
-		if(valor.length !== 9) return false;
+		if(tamanhoNaoE(valor)) return false;
 		if(["10", "11", "15"].indexOf(valor.substring(0, 2)) === -1) return false;
 		
 		var base = valor.substring(0, 8);
@@ -400,7 +400,7 @@ var funcoes = {
 	},
 
 	ms: function(valor){
-		if(valor.length !== 9) return false;
+		if(tamanhoNaoE(valor)) return false;
 		if(naoComecaCom(valor, "28")) return false;
 		
 		var base = valor.substring(0, 8);
@@ -412,7 +412,7 @@ var funcoes = {
 	},
 
 	df: function(valor){
-		if(valor.length !== 13) return false;
+		if(tamanhoNaoE(valor, 13)) return false;
 		
 		var base = valor.substring(0, 11);
 
@@ -425,6 +425,11 @@ var funcoes = {
 		return valor === base + primeiro + segundo;
 	}
 };
+
+function tamanhoNaoE(string, tamanho){
+	if(eIndefinido(tamanho)) tamanho = 9;
+	return string.length !== tamanho;
+}
 
 function naoComecaCom(string, valor){
 	return string.substring(0, valor.length) !== valor;
