@@ -23,7 +23,7 @@ Utilização
 
     <script src="ie.min.js"></script>
     <script>
-        var ie = require("ie");
+        var ie = require("inscricaoestadual");
         ie(inscricaoEstadual, uf);
     </script>
 
@@ -59,7 +59,7 @@ Para rodar os testes:
 Todas as inscrições estaduais nos testes foram obtidas publicamente na internet.  
 Se você obteve uma validação falsa para uma inscrição estadual verdadeira, pesquise no site do [SINTEGRA](http://www.sintegra.gov.br/ "Sintegra") se de fato esta inscrição estadual existe e é valida, neste caso [abra uma notificação](https://github.com/gammasoft/ie/issues/new) aqui no GitHub para apurarmos o caso. 
 
-### Implementados até agora (22 de 27 - 81,48%)
+### Implementados até agora (23 de 27 - 85,18%)
 **Região Centro-Oeste**
 - [X] Mato Grosso do Sul
 - [X] Mato Grosso
