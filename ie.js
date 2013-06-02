@@ -49,7 +49,7 @@ var funcoes = {
 		var primeiroMultiplicador = [2, 3, 4, 5, 6, 7, 8];
 		if(valor.length === 9) primeiroMultiplicador.push(9);
 		
-		if(["0", "1", "2", "3", "4", "5", "8"].indexOf(valor.substring(0, 1)) !== -1){
+		if("0123458".split("").indexOf(valor.substring(0, 1)) !== -1){
 			var segundoResto = mod(base, segundoMultiplicador, 10);
 			segundoDigito = segundoResto === 0 ? 0 : 10 - segundoResto;
 			
