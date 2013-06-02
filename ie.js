@@ -11,12 +11,12 @@ module.exports = validar;
 function validar(ie, estado){
 	if(eIndefinido(estado)) estado = "";
 	estado = estado.toLowerCase();
-	if(estados.indexOf(estado.toLowerCase()) === -1) throw new Error("O estado fornecido não é válido");
+	if(estados.indexOf(estado.toLowerCase()) === -1) throw "O estado fornecido não é válido";
 	
-	if(eIndefinido(ie)) throw new Error("Inscrição estadual deve ser fornecida");
+	if(eIndefinido(ie)) throw "Inscrição estadual deve ser fornecida";
 	
 	if(Array.isArray(ie)) return ie.map(function(ie){ return validar(ie, estado); });
-	else if(typeof ie !== "string") throw new Error("Inscrição estadual deve ser uma string ou um array de strings");
+	else if(typeof ie !== "string") throw "Inscrição estadual deve ser uma string ou um array de strings";
 	else if(ie.match(/^ISENT[O|A]$/i)) return true;
 	else ie = ie.replace(/\./g, "").replace(/-/g, "").replace(/\//g, "").replace(/\s/g, "");
 	
