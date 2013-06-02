@@ -52,17 +52,16 @@ var funcoes = {
 			primeiroDigito = primeiroResto < 2 ? 0 : 11 - primeiroResto;
 		}
 		
-		return valor === base + primeiroDigito + segundoDigito;
+		return valor == base + primeiroDigito + segundoDigito;
 	},
 		
 	se: function(valor){
 		if(tamanhoNaoE(valor)) return false;
 		
 		var base = primeiros(valor);
-		var resto = mod(base);
-		var digito = resto < 2 ? 0 : 11 - resto; 
+		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base)); 
 
-		return valor === base + digito;
+		return valor == base + digito;
 	},
 		
 	al: function(valor){
@@ -76,17 +75,16 @@ var funcoes = {
 		resto = resto - (parseInt(resto/11, 10) * 11);
 		var digito = resto === 10 ? 0 : resto; 
 
-		return valor === base + digito;
+		return valor == base + digito;
 	},
 		
 	pb: function(valor){
 		if(tamanhoNaoE(valor)) return false;
 		
 		var base = primeiros(valor);
-		var resto = mod(base);
-		var digito = resto < 2 ? 0 : 11 - resto; 
+		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base)); 
 
-		return valor === base + digito;
+		return valor == base + digito;
 	},
 		
 	rn: function(valor){
@@ -101,7 +99,7 @@ var funcoes = {
 		var resto = (mod(base, multiplicadores) * 10) % 11;
 		var digito = resto === 10 ? 0 : resto; 
 
-		return valor === base + digito;	
+		return valor == base + digito;	
 	},
 
 	ap: function(valor){
@@ -122,7 +120,7 @@ var funcoes = {
 		else if(resto === 0) digito = d;
 		else digito = 11 - resto;
 		
-		return valor === base + digito;
+		return valor == base + digito;
 	},
 
 	rr: function(valor){
@@ -132,32 +130,29 @@ var funcoes = {
 		var base = primeiros(valor);
 		var digito = mod(base, [8, 7, 6, 5, 4, 3, 2, 1], 9);
 
-		return valor === base + digito;
+		return valor == base + digito;
 	},
 
 	am: function(valor){
 		if(tamanhoNaoE(valor)) return false;
 		
 		var base = primeiros(valor);
-		var resto = mod(base);
-		var digito = resto < 2 ? 0 : 11 - resto; 
+		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base)); 
 
-		return valor === base + digito;
+		return valor == base + digito;
 	},
 
 	ro: function(valor){
 		if(tamanhoE(valor, 9)){
 			var base = valor.substring(3, 8);
-			var resto = mod(base);
-			var digito = resto < 2 ? 0 : 11 - resto;
+			var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base));
 			
-			return valor === valor.substring(0, 3) + base + digito;
+			return valor == valor.substring(0, 3) + base + digito;
 		}else if(tamanhoE(valor, 14)){
 			var base = primeiros(valor, 13);
-			var resto = mod(base);
-			var digito = resto < 2 ? 0 : 11 - resto;
+			var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base));
 			
-			return valor === base + digito;
+			return valor == base + digito;
 		}else return false;
 	},
 
@@ -165,40 +160,36 @@ var funcoes = {
 		if(tamanhoNaoE(valor, 8)) return false;
 		
 		var base = primeiros(valor, 7);
-		var resto = mod(base, [2, 3, 4, 5, 6, 7]);
-		var digito = resto < 2 ? 0 : 11 - resto; 
+		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base, [2, 3, 4, 5, 6, 7])); 
 		
-		return valor === base + digito;
+		return valor == base + digito;
 	},
 
 	sc: function(valor){
 		if(tamanhoNaoE(valor)) return false;
 		
 		var base = primeiros(valor);
-		var resto = mod(base);
-		var digito = resto < 2 ? 0 : 11 - resto; 
+		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base)); 
 		
-		return valor === base + digito;
+		return valor == base + digito;
 	},
 
 	pi: function(valor){
 		if(tamanhoNaoE(valor)) return false;
 		
 		var base = primeiros(valor);
-		var resto = mod(base);
-		var digito = resto < 2 ? 0 : 11 - resto; 
+		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base)); 
 		
-		return valor === base + digito;
+		return valor == base + digito;
 	},
 
 	es: function(valor){
 		if(tamanhoNaoE(valor)) return false;
 		
 		var base = primeiros(valor);
-		var resto = mod(base);
-		var digito = resto < 2 ? 0 : 11 - resto; 
+		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base)); 
 		
-		return valor === base + digito;
+		return valor == base + digito;
 	},
 
 	pr: function(valor){
@@ -212,7 +203,7 @@ var funcoes = {
 		var restoSegundo = mod(base + primeiro, [2, 3, 4, 5, 6, 7]);
 		var segundo = 11 - restoSegundo >= 10 ? 0 : 11 - restoSegundo;
 		
-		return valor === base + primeiro + segundo;
+		return valor == base + primeiro + segundo;
 	},
 
 	pa: function(valor){
@@ -220,10 +211,9 @@ var funcoes = {
 		if(naoComecaCom(valor, "15")) return false;
 		
 		var base = primeiros(valor);
-		var resto = mod(base);
-		var digito = resto < 2 ? 0 : 11 - resto; 
+		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base)); 
 		
-		return valor === base + digito;
+		return valor == base + digito;
 	},
 
 	ce: function(valor){
@@ -231,10 +221,9 @@ var funcoes = {
 		if(naoComecaCom(valor, "06")) return false;
 		
 		var base = primeiros(valor);
-		var resto = mod(base);
-		var digito = resto < 2 ? 0 : 11 - resto; 
+		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base)); 
 		
-		return valor === base + digito;
+		return valor == base + digito;
 	},
 
 	pe: function(valor){
@@ -246,7 +235,7 @@ var funcoes = {
 		var restoSegundo = mod(base + primeiro);
 		var segundo = 11 - restoSegundo >= 10 ? 0 : 11 - restoSegundo;
 		
-		return valor === base + primeiro + segundo;
+		return valor == base + primeiro + segundo;
 	},
 
 	ma: function(valor){
@@ -254,10 +243,9 @@ var funcoes = {
 		if(naoComecaCom(valor, "12")) return false;
 		
 		var base = primeiros(valor);
-		var resto = mod(base);
-		var digito = resto < 2 ? 0 : 11 - resto; 
+		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base)); 
 		
-		return valor === base + digito;
+		return valor == base + digito;
 	},
 
 	ac: function(valor){
@@ -272,27 +260,25 @@ var funcoes = {
 		var segundoResto = mod(base + primeiroDigito);
 		var segundoDigito = segundoResto < 2 ? 0 : 11 - segundoResto;
 		
-		return valor === base + primeiroDigito + segundoDigito;
+		return valor == base + primeiroDigito + segundoDigito;
 	},
 
 	rs: function(valor){
 		if(tamanhoNaoE(valor, 10)) return false;
 		
 		var base = primeiros(valor, 9);
-		var resto = mod(base);
-		var digito = resto < 2 ? 0 : 11 - resto; 
+		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base)); 
 		
-		return valor === base + digito;
+		return valor == base + digito;
 	},
 
 	mt: function(valor){
 		if(tamanhoNaoE(valor, 11) && tamanhoNaoE(valor)) return false;
 		
 		var base = tamanhoE(valor, 11) ? valor.substring(0, 10) : primeiros(valor);
-		var resto = mod(base);
-		var digito = resto <= 1 ? 0 : 11 - resto; 
+		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base)); 
 		
-		return valor === base + digito;
+		return valor == base + digito;
 	},
 
 	sp: function(valor){
@@ -318,7 +304,7 @@ var funcoes = {
 			var segundoResto = mod(primeiraBase + primeiro + segundaBase, [2, 3, 4, 5, 6, 7, 8, 9, 10]).toString();
 			var segundo = segundoResto.length > 1 ? segundoResto[1] : segundoResto[0];
 			
-			return valor === primeiraBase + primeiro + segundaBase + segundo;
+			return valor == primeiraBase + primeiro + segundaBase + segundo;
 		}
 	},
 
@@ -341,9 +327,9 @@ var funcoes = {
 		if(primeiro === 10) primeiro = 0;
 		
 		var resto = mod(base + primeiro, [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
-		var segundo = (resto <= 1 ? 0 : 11 - resto);
+		var segundo = (substracaoPor11SeMaiorQue2CasoContrario0(resto));
 		
-		return valor === base + primeiro + segundo;
+		return valor == base + primeiro + segundo;
 	},
 
 	to: function(valor){
@@ -356,10 +342,9 @@ var funcoes = {
 		}else
 			base = primeiros(valor);
 			
-		var resto = mod(base);
-		var digito = resto < 2 ? 0 : 11 - resto; 
+		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base)); 
 		
-		return valor === valor.substring(0, valor.length - 1) + digito;
+		return valor == valor.substring(0, valor.length - 1) + digito;
 	},
 
 	go: function(valor){
@@ -385,7 +370,7 @@ var funcoes = {
 		}
 		else digito = 11 - resto; 
 
-		return valor === base + digito;
+		return valor == base + digito;
 	},
 
 	ms: function(valor){
@@ -393,11 +378,9 @@ var funcoes = {
 		if(naoComecaCom(valor, "28")) return false;
 		
 		var base = primeiros(valor);
-		resto = mod(base);
+		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base));
 		
-		var digito = (resto <= 1 ? 0 : 11 - resto);
-		
-		return valor === base + digito;
+		return valor == base + digito;
 	},
 
 	df: function(valor){
@@ -405,15 +388,16 @@ var funcoes = {
 		
 		var base = primeiros(valor, 11);
 
-		var restoPrimeiro = mod(base);
-		var primeiro = 11 - restoPrimeiro >= 10 ? 0 : 11 - restoPrimeiro;
+		var primeiro = substracaoPor11SeMaiorQue2CasoContrario0(mod(base));
+		var segundo = substracaoPor11SeMaiorQue2CasoContrario0(mod(base + primeiro));
 		
-		var restoSegundo = mod(base + primeiro);
-		var segundo = 11 - restoSegundo >= 10 ? 0 : 11 - restoSegundo;
-		
-		return valor === base + primeiro + segundo;
+		return valor == base + primeiro + segundo;
 	}
 };
+
+function substracaoPor11SeMaiorQue2CasoContrario0(valor){
+	return valor < 2 ? 0 : 11 - valor;
+}
 
 function primeiros(string, quantidade){
 	if(eIndefinido(quantidade)) quantidade = 8;
