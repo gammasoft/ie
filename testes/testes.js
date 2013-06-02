@@ -1,4 +1,4 @@
-//browserify -r ./ie:ie | uglifyjs -c -m --output ie.min.js
+//browserify -r ./ie:inscricaoestadual | uglifyjs -c -m --output ie.min.js
 var inscricaoEstadual = require("../ie");
 
 module.exports = {
@@ -18,10 +18,14 @@ module.exports = {
 		         "06.306763-3"].every(function(ie){ return inscricaoEstadual(ie, "ce"); }));
 		test.done();
 	},
-//	"Rio Grande do Norte": function(test){
-//		test.ok();
-//		test.done();
-//	},
+	"Rio Grande do Norte": function(test){
+		test.ok(["20.040.040-1", "20.0.040.040-0", "200174789",
+		         "200169254", "202071197", "200982931",
+		         "201108062", "200335154", "202014428",
+		         "202011518", "200935879", "202025845",
+		         "200856677", "200903845", "20.280.297-3"].every(function(ie){ return inscricaoEstadual(ie, "rn"); }));
+		test.done();
+	},
 //	"Paraíba": function(test){
 //		test.ok();
 //		test.done();
@@ -5008,7 +5012,7 @@ module.exports = {
 		         "252.813.170"].every(function(ie){ return inscricaoEstadual(ie, "sc"); }));
 		test.done();
 	},
-	"Rio Grande do Sul": function(test){
+	"Rio Grande do Sul": function(test){ //http://www.transvias.com.br/1/23/transportadoras/
 		test.ok(["024/0440013", "096/2514500", "153/0153554", 
 		         "100.0270545", "111/0084169", "067/0047457",
 		         "449/0000757", "067/0043222", "067/0042811",
@@ -7961,7 +7965,7 @@ module.exports = {
 		
 		test.done();
 	},
-	"Rio de Janeiro": function(test){
+	"Rio de Janeiro": function(test){ //http://www.transvias.com.br/1/19/transportadoras/
 		test.ok(["78527323", "78368870", "10.008.689", "82.879.781"].every(function(ie){ return inscricaoEstadual(ie, "rj"); }));
 		test.done();
 	},

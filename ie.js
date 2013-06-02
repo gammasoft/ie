@@ -37,6 +37,21 @@ function lookup(ie){
 
 var funcoes = {};
 
+funcoes.rn = function(valor){
+	if(valor.length !== 9 && valor.length !== 10) return false;
+	if(valor.substring(0, 2) !== "20") return false;
+	
+	var base = valor.substring(0, valor.length - 1);
+	
+	var multiplicadores = [2, 3, 4, 5, 6, 7, 8, 9];
+	if(valor.length === 10) multiplicadores.push(10);
+	
+	var resto = (mod(base, multiplicadores) * 10) % 11;
+	var digito = resto === 10 ? 0 : resto; 
+
+	return valor === base + digito;	
+};
+
 funcoes.ap = function(valor){
 	if(valor.length !== 9) return false;
 	if(valor.substring(0, 2) !== "03") return false;
@@ -87,7 +102,7 @@ funcoes.ro = function(valor){
 		return valor === valor.substring(0, 3) + base + digito;
 	}else if(valor.length === 14){
 		var base = valor.substring(0, 13);
-		var resto = mod(base, [2, 3, 4, 5, 6, 7, 8, 9]);
+		var resto = mod(base);
 		var digito = resto < 2 ? 0 : 11 - resto;
 		
 		return valor === base + digito;
@@ -355,7 +370,7 @@ function mod11literal(valor, multiplicadores){
 	var i = 0;
 	return valor.split("").reduceRight(function(anterior, atual){
 		if(i > multiplicadores.length - 1) i = 0;
-		return (multiplicadores[i++] * parseInt(atual)).toString() + anterior.toString(); 
+		return (multiplicadores[i++] * parseInt(atual, 10)).toString() + anterior.toString(); 
 	}, "").split("").reduce(function(anterior, atual){
 		return anterior + parseInt(atual);
 	}, 0);
@@ -369,6 +384,6 @@ function mod(valor, multiplicadores, divisor){
 	var i = 0;
 	return valor.split("").reduceRight(function(anterior, atual){
 		if(i > multiplicadores.length - 1) i = 0;
-		return (multiplicadores[i++] * parseInt(atual)) + anterior; 
+		return (multiplicadores[i++] * parseInt(atual, 10)) + anterior; 
 	}, 0) % divisor;
 }
