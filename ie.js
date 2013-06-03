@@ -227,11 +227,8 @@ var funcoes = {
 		
 		var base = primeiros(valor, 11);
 		
-		var primeiroResto = mod(base);
-		var primeiroDigito = substracaoPor11SeMaiorQue2CasoContrario0(primeiroResto);
-		
-		var segundoResto = mod(base + primeiroDigito);
-		var segundoDigito = substracaoPor11SeMaiorQue2CasoContrario0(segundoResto);
+		var primeiroDigito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base));
+		var segundoDigito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base + primeiroDigito));
 		
 		return valor == base + primeiroDigito + segundoDigito;
 	},
@@ -295,8 +292,7 @@ var funcoes = {
 		var primeiro = ((parseInt(produtorioLiteral / 10) + 1) * 10) - produtorioLiteral;
 		if(primeiro === 10) primeiro = 0;
 		
-		var resto = mod(base + primeiro, [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
-		var segundo = (substracaoPor11SeMaiorQue2CasoContrario0(resto));
+		var segundo = substracaoPor11SeMaiorQue2CasoContrario0(mod(base + primeiro, [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]));
 		
 		return valor == base + primeiro + segundo;
 	},
@@ -331,7 +327,7 @@ var funcoes = {
 		
 		var resto = mod(base);
 		
-		var digito = null;
+		var digito;
 		if(resto === 0) digito = 0;
 		else if(resto === 1){
 			if(entre(base, 10103105, 10119997)) digito = 1;
@@ -345,7 +341,6 @@ var funcoes = {
 	ms: function(valor){
 		if(tamanhoNaoE(valor)) return false;
 		if(naoComecaCom(valor, "28")) return false;
-		
 		
 		return calculoTrivial(valor);
 	},
