@@ -58,8 +58,7 @@ var funcoes = {
 	se: function(valor){
 		if(tamanhoNaoE(valor)) return false;
 		
-		var base = primeiros(valor);
-		return calculoTrivial(valor, base);
+		return calculoTrivial(valor);
 	},
 		
 	al: function(valor){
@@ -79,8 +78,7 @@ var funcoes = {
 	pb: function(valor){
 		if(tamanhoNaoE(valor)) return false;
 		
-		var base = primeiros(valor);
-		return calculoTrivial(valor, base);
+		return calculoTrivial(valor);
 	},
 		
 	rn: function(valor){
@@ -132,8 +130,7 @@ var funcoes = {
 	am: function(valor){
 		if(tamanhoNaoE(valor)) return false;
 		
-		var base = primeiros(valor);
-		return calculoTrivial(valor, base);
+		return calculoTrivial(valor);
 	},
 
 	ro: function(valor){
@@ -162,22 +159,19 @@ var funcoes = {
 	sc: function(valor){
 		if(tamanhoNaoE(valor)) return false;
 		
-		var base = primeiros(valor);
-		return calculoTrivial(valor, base);
+		return calculoTrivial(valor);
 	},
 
 	pi: function(valor){
 		if(tamanhoNaoE(valor)) return false;
 		
-		var base = primeiros(valor);
-		return calculoTrivial(valor, base);
+		return calculoTrivial(valor);
 	},
 
 	es: function(valor){
 		if(tamanhoNaoE(valor)) return false;
 		
-		var base = primeiros(valor);
-		return calculoTrivial(valor, base);
+		return calculoTrivial(valor);
 	},
 
 	pr: function(valor){
@@ -198,16 +192,14 @@ var funcoes = {
 		if(tamanhoNaoE(valor)) return false;
 		if(naoComecaCom(valor, "15")) return false;
 		
-		var base = primeiros(valor);
-		return calculoTrivial(valor, base);
+		return calculoTrivial(valor);
 	},
 
 	ce: function(valor){
 		if(tamanhoNaoE(valor)) return false;
 		if(naoComecaCom(valor, "06")) return false;
 		
-		var base = primeiros(valor);
-		return calculoTrivial(valor, base);
+		return calculoTrivial(valor);
 	},
 
 	pe: function(valor){
@@ -226,8 +218,7 @@ var funcoes = {
 		if(tamanhoNaoE(valor)) return false;
 		if(naoComecaCom(valor, "12")) return false;
 		
-		var base = primeiros(valor);
-		return calculoTrivial(valor, base);
+		return calculoTrivial(valor);
 	},
 
 	ac: function(valor){
@@ -355,8 +346,8 @@ var funcoes = {
 		if(tamanhoNaoE(valor)) return false;
 		if(naoComecaCom(valor, "28")) return false;
 		
-		var base = primeiros(valor);
-		return calculoTrivial(valor, base);
+		
+		return calculoTrivial(valor);
 	},
 
 	df: function(valor){
@@ -372,6 +363,7 @@ var funcoes = {
 };
 
 function calculoTrivial(valor, base){
+	if(eIndefinido(base)) base = primeiros(valor);
 	var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base));
 	return valor == base + digito;
 }
