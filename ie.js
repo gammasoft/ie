@@ -29,27 +29,29 @@ var funcoes = {
 	ba: function(valor){
 		if(tamanhoNaoE(valor, 8) && tamanhoNaoE(valor)) return false;
 		
-		var base = valor.substring(0, valor.length - 2);
+		var base = primeiros(valor, valor.length - 2);
 		var primeiroDigito, segundoDigito;
 		
 		var segundoMultiplicador = serie(2, 7);
-		if(tamanhoE(valor, 9)) segundoMultiplicador.push(8);
-		
 		var primeiroMultiplicador = serie(2, 8);
-		if(tamanhoE(valor, 9)) primeiroMultiplicador.push(9);
+		
+		if(tamanhoE(valor, 9)){
+			segundoMultiplicador.push(8); 
+			primeiroMultiplicador.push(9);
+		}
 		
 		if("0123458".split("").indexOf(valor.substring(0, 1)) !== -1){
 			var segundoResto = mod(base, segundoMultiplicador, 10);
-			segundoDigito = segundoResto === 0 ? 0 : 10 - segundoResto;
+			segundoDigito = segundoResto == 0 ? 0 : 10 - segundoResto;
 			
 			var primeiroResto = mod(base + segundoDigito, primeiroMultiplicador, 10);
-			primeiroDigito = primeiroResto === 0 ? 0 : 10 - primeiroResto;
+			primeiroDigito = primeiroResto == 0 ? 0 : 10 - primeiroResto;
 		}else{
 			var segundoResto = mod(base, segundoMultiplicador);
-			segundoDigito = segundoResto < 2 ? 0 : 11 - segundoResto;
+			segundoDigito = substracaoPor11SeMaiorQue2CasoContrario0(segundoResto);
 			
 			var primeiroResto = mod(base + segundoDigito, primeiroMultiplicador);
-			primeiroDigito = primeiroResto < 2 ? 0 : 11 - primeiroResto;
+			primeiroDigito = substracaoPor11SeMaiorQue2CasoContrario0(primeiroResto);
 		}
 		
 		return valor == base + primeiroDigito + segundoDigito;
