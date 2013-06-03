@@ -318,12 +318,7 @@ var funcoes = {
 		
 		var base = primeiros(valor);
 		
-		if(base == "11094402"){
-			if(valor.substr(8) == "1" || valor.substr(8) == "0")
-				return true;
-			else
-				return false;
-		}
+		if(base == "11094402") return valor.substr(8) == "1" || valor.substr(8) == "0";
 		
 		var resto = mod(base);
 		
