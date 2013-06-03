@@ -59,9 +59,7 @@ var funcoes = {
 		if(tamanhoNaoE(valor)) return false;
 		
 		var base = primeiros(valor);
-		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base)); 
-
-		return valor == base + digito;
+		return calculoTrivial(valor, base);
 	},
 		
 	al: function(valor){
@@ -82,9 +80,7 @@ var funcoes = {
 		if(tamanhoNaoE(valor)) return false;
 		
 		var base = primeiros(valor);
-		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base)); 
-
-		return valor == base + digito;
+		return calculoTrivial(valor, base);
 	},
 		
 	rn: function(valor){
@@ -137,9 +133,7 @@ var funcoes = {
 		if(tamanhoNaoE(valor)) return false;
 		
 		var base = primeiros(valor);
-		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base)); 
-
-		return valor == base + digito;
+		return calculoTrivial(valor, base);
 	},
 
 	ro: function(valor){
@@ -169,27 +163,21 @@ var funcoes = {
 		if(tamanhoNaoE(valor)) return false;
 		
 		var base = primeiros(valor);
-		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base)); 
-		
-		return valor == base + digito;
+		return calculoTrivial(valor, base);
 	},
 
 	pi: function(valor){
 		if(tamanhoNaoE(valor)) return false;
 		
 		var base = primeiros(valor);
-		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base)); 
-		
-		return valor == base + digito;
+		return calculoTrivial(valor, base);
 	},
 
 	es: function(valor){
 		if(tamanhoNaoE(valor)) return false;
 		
 		var base = primeiros(valor);
-		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base)); 
-		
-		return valor == base + digito;
+		return calculoTrivial(valor, base);
 	},
 
 	pr: function(valor){
@@ -211,9 +199,7 @@ var funcoes = {
 		if(naoComecaCom(valor, "15")) return false;
 		
 		var base = primeiros(valor);
-		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base)); 
-		
-		return valor == base + digito;
+		return calculoTrivial(valor, base);
 	},
 
 	ce: function(valor){
@@ -221,9 +207,7 @@ var funcoes = {
 		if(naoComecaCom(valor, "06")) return false;
 		
 		var base = primeiros(valor);
-		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base)); 
-		
-		return valor == base + digito;
+		return calculoTrivial(valor, base);
 	},
 
 	pe: function(valor){
@@ -243,9 +227,7 @@ var funcoes = {
 		if(naoComecaCom(valor, "12")) return false;
 		
 		var base = primeiros(valor);
-		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base)); 
-		
-		return valor == base + digito;
+		return calculoTrivial(valor, base);
 	},
 
 	ac: function(valor){
@@ -255,10 +237,10 @@ var funcoes = {
 		var base = primeiros(valor, 11);
 		
 		var primeiroResto = mod(base);
-		var primeiroDigito = primeiroResto < 2 ? 0 : 11 - primeiroResto;
+		var primeiroDigito = substracaoPor11SeMaiorQue2CasoContrario0(primeiroResto);
 		
 		var segundoResto = mod(base + primeiroDigito);
-		var segundoDigito = segundoResto < 2 ? 0 : 11 - segundoResto;
+		var segundoDigito = substracaoPor11SeMaiorQue2CasoContrario0(segundoResto);
 		
 		return valor == base + primeiroDigito + segundoDigito;
 	},
@@ -267,18 +249,14 @@ var funcoes = {
 		if(tamanhoNaoE(valor, 10)) return false;
 		
 		var base = primeiros(valor, 9);
-		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base)); 
-		
-		return valor == base + digito;
+		return calculoTrivial(valor, base);
 	},
 
 	mt: function(valor){
 		if(tamanhoNaoE(valor, 11) && tamanhoNaoE(valor)) return false;
 		
 		var base = tamanhoE(valor, 11) ? valor.substring(0, 10) : primeiros(valor);
-		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base)); 
-		
-		return valor == base + digito;
+		return calculoTrivial(valor, base);
 	},
 
 	sp: function(valor){
@@ -378,9 +356,7 @@ var funcoes = {
 		if(naoComecaCom(valor, "28")) return false;
 		
 		var base = primeiros(valor);
-		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base));
-		
-		return valor == base + digito;
+		return calculoTrivial(valor, base);
 	},
 
 	df: function(valor){
@@ -394,6 +370,11 @@ var funcoes = {
 		return valor == base + primeiro + segundo;
 	}
 };
+
+function calculoTrivial(valor, base){
+	var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base));
+	return valor == base + digito;
+}
 
 function substracaoPor11SeMaiorQue2CasoContrario0(valor){
 	return valor < 2 ? 0 : 11 - valor;
