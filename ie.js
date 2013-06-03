@@ -159,20 +159,14 @@ var funcoes = {
 	},
 
 	sc: function(valor){
-		if(tamanhoNaoE(valor)) return false;
-		
 		return calculoTrivial(valor);
 	},
 
 	pi: function(valor){
-		if(tamanhoNaoE(valor)) return false;
-		
 		return calculoTrivial(valor);
 	},
 
 	es: function(valor){
-		if(tamanhoNaoE(valor)) return false;
-		
 		return calculoTrivial(valor);
 	},
 
@@ -239,7 +233,7 @@ var funcoes = {
 		if(tamanhoNaoE(valor, 10)) return false;
 		
 		var base = primeiros(valor, 9);
-		return calculoTrivial(valor, base);
+		return calculoTrivial(valor, base, true);
 	},
 
 	mt: function(valor){
@@ -336,7 +330,6 @@ var funcoes = {
 	},
 
 	ms: function(valor){
-		if(tamanhoNaoE(valor)) return false;
 		if(naoComecaCom(valor, "28")) return false;
 		
 		return calculoTrivial(valor);
@@ -360,7 +353,8 @@ function serie(de, ate){
 	return resultado;
 }
 
-function calculoTrivial(valor, base){
+function calculoTrivial(valor, base, validarTamanho){
+	if(!validarTamanho && tamanhoNaoE(valor)) return false;
 	if(eIndefinido(base)) base = primeiros(valor);
 	var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base));
 	return valor == base + digito;
