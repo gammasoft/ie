@@ -32,10 +32,10 @@ var funcoes = {
 		var base = valor.substring(0, valor.length - 2);
 		var primeiroDigito, segundoDigito;
 		
-		var segundoMultiplicador = [2, 3, 4, 5, 6, 7];
+		var segundoMultiplicador = serie(2, 7);
 		if(tamanhoE(valor, 9)) segundoMultiplicador.push(8);
 		
-		var primeiroMultiplicador = [2, 3, 4, 5, 6, 7, 8];
+		var primeiroMultiplicador = serie(2, 8);
 		if(tamanhoE(valor, 9)) primeiroMultiplicador.push(9);
 		
 		if("0123458".split("").indexOf(valor.substring(0, 1)) !== -1){
@@ -87,7 +87,7 @@ var funcoes = {
 		
 		var base = valor.substring(0, valor.length - 1);
 		
-		var multiplicadores = [2, 3, 4, 5, 6, 7, 8, 9];
+		var multiplicadores = serie(2, 9);
 		if(tamanhoE(valor, 10)) multiplicadores.push(10);
 		
 		var resto = (mod(base, multiplicadores) * 10) % 11;
@@ -151,7 +151,7 @@ var funcoes = {
 		if(tamanhoNaoE(valor, 8)) return false;
 		
 		var base = primeiros(valor, 7);
-		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base, [2, 3, 4, 5, 6, 7])); 
+		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base, serie(2, 7))); 
 		
 		return valor == base + digito;
 	},
@@ -179,10 +179,10 @@ var funcoes = {
 		
 		var base = primeiros(valor);
 		
-		var restoPrimeiro = mod(base, [2, 3, 4, 5, 6, 7]);
+		var restoPrimeiro = mod(base, serie(2, 7));
 		var primeiro = 11 - restoPrimeiro >= 10 ? 0 : 11 - restoPrimeiro;
 		
-		var restoSegundo = mod(base + primeiro, [2, 3, 4, 5, 6, 7]);
+		var restoSegundo = mod(base + primeiro, serie(2, 7));
 		var segundo = 11 - restoSegundo >= 10 ? 0 : 11 - restoSegundo;
 		
 		return valor == base + primeiro + segundo;
@@ -267,7 +267,7 @@ var funcoes = {
 			var primeiroResto = mod(primeiraBase, [10, 8, 7, 6, 5, 4, 3, 1]).toString(); 
 			var primeiro = primeiroResto.length > 1 ? primeiroResto[1] : primeiroResto[0];
 			
-			var segundoResto = mod(primeiraBase + primeiro + segundaBase, [2, 3, 4, 5, 6, 7, 8, 9, 10]).toString();
+			var segundoResto = mod(primeiraBase + primeiro + segundaBase, serie(2, 10)).toString();
 			var segundo = segundoResto.length > 1 ? segundoResto[1] : segundoResto[0];
 			
 			return valor == primeiraBase + primeiro + segundaBase + segundo;
@@ -292,7 +292,7 @@ var funcoes = {
 		var primeiro = ((parseInt(produtorioLiteral / 10) + 1) * 10) - produtorioLiteral;
 		if(primeiro === 10) primeiro = 0;
 		
-		var segundo = substracaoPor11SeMaiorQue2CasoContrario0(mod(base + primeiro, [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]));
+		var segundo = substracaoPor11SeMaiorQue2CasoContrario0(mod(base + primeiro, serie(2, 11)));
 		
 		return valor == base + primeiro + segundo;
 	},
@@ -300,12 +300,12 @@ var funcoes = {
 	to: function(valor){
 		if(tamanhoNaoE(valor) && tamanhoNaoE(valor, 11)) return false;
 		
-		var base = "";
+		var base;
 		if(tamanhoE(valor, 11)){
 			if(["01", "02", "03", "99"].indexOf(valor.substring(2, 4)) === -1) return false;
 			base = valor.substring(0, 2) + valor.substring(4, 10);
-		}else
-			base = primeiros(valor);
+		}
+		else base = primeiros(valor);
 			
 		var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base)); 
 		
@@ -352,6 +352,12 @@ var funcoes = {
 	}
 };
 
+function serie(de, ate){
+	var resultado = [];
+	while(de <= ate) resultado.push(de++);
+	return resultado;
+}
+
 function calculoTrivial(valor, base){
 	if(eIndefinido(base)) base = primeiros(valor);
 	var digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base));
@@ -392,7 +398,7 @@ function entre(valor, limiteInferior, limiteSuperior){
 function mod(valor, multiplicadores, divisor){
 	if(eIndefinido(divisor)) divisor = 11;
 	if(eIndefinido(multiplicadores))
-		multiplicadores = [2, 3, 4, 5, 6, 7, 8, 9];
+		multiplicadores = serie(2, 9);
 		
 	var i = 0;
 	return valor.split("").reduceRight(function(anterior, atual){
