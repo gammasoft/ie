@@ -1,6 +1,6 @@
 {
   "name": "inscricaoestadual",
-  "version": "0.0.0-4",
+  "version": "0.0.0-5",
   "description": "Biblioteca de validação de inscrições estaduais",
   "main": "ie.js",
   "scripts": {
