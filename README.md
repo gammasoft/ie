@@ -8,26 +8,27 @@ Escrito por [@renatoargh](http://www.github.com/renatoargh "Renato Gama") para [
 #### Node.js 
 
 Instalação:
-
-    npm install inscricaoestadual
-    
+```bash
+npm install inscricaoestadual
+```
 Utilização:
 
-    var ie = require("inscricaoestadual");
-    ie(inscricaoEstadual, uf);
-    
+```javascript
+var ie = require("inscricaoestadual");
+ie(inscricaoEstadual, uf);
+```    
 #### Browser
 
 Instalação: faça o download [clicando aqui](https://raw.github.com/gammasoft/ie/master/ie.min.js)
 
 Utilização:
-
-    <script src="ie.min.js"></script>
-    <script>
-        var ie = require("inscricaoestadual");
-        ie(inscricaoEstadual, uf);
-    </script>
-
+```html
+<script src="ie.min.js"></script>
+<script>
+    var ie = require("inscricaoestadual");
+    ie(inscricaoEstadual, uf);
+</script>
+```
 -----------------------------------------
 
 #### ie(inscricaoEstadual[, uf])
@@ -37,18 +38,19 @@ Utilização:
 
  - `uf` é opcional, mas se fornecida pode ser `""` (string vazia) ou deve ser uma string entre um dos valores  
 
-          ["ac", "al", "ap", "am", 
-          "ba", "ce", "df", "es",
-          "go", "ma", "mt", "ms",
-          "mg", "pa", "pb", "pr",
-          "pe", "pi", "rj", "rn",
-          "rs", "ro", "rr", "sc",
-          "sp", "se", "to"]
-          
+```javascript
+["ac", "al", "ap", "am", 
+"ba", "ce", "df", "es",
+"go", "ma", "mt", "ms",
+"mg", "pa", "pb", "pr",
+"pe", "pi", "rj", "rn",
+"rs", "ro", "rr", "sc",
+"sp", "se", "to"]
+```       
  No caso de ser string vazia ou não fornecida, a função `ie` retorna um array de estados nas quais esta inscrição estadual tem um valor válido, útil quando se tem uma inscrição estadual mas não se sabe a qual estado ela pertece, por exemplo:  
-     
-        ie("012345679") === ["se", "pb", "am", "ro", "sc", "pi", "es", "mt", "to"];
-  
+```javascript
+ie("012345679") === ["se", "pb", "am", "ro", "sc", "pi", "es", "mt", "to"];
+``` 
  Quando o estado é fornecido, a validação é otimizada pois o valor da inscrição estadual é testada apenas contra a regra do estado especificado e a função retorna estritamente `true` ou `false`.
  
 ### Testes
