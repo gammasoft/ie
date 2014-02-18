@@ -16,6 +16,13 @@
     "validação"
   ],
   "author": "Renato Gama",
+  "contributors": [
+    {
+      "name" : "Sérgio Vilar",
+      "email" : "vilar@me.com",
+      "url" : "http://github.com/sergiovilar"
+    }
+  ],
   "license": "BSD",
   "gitHead": "2fb8c5b48c2968cec93918421d035fda484dbea9",
   "readmeFilename": "README.md",
