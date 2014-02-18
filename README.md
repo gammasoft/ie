@@ -21,7 +21,7 @@ ie(inscricaoEstadual, uf);
 
 Instalação: faça o download [clicando aqui](https://raw.github.com/gammasoft/ie/master/ie.min.js)
 
-Via bower:
+Ou via bower:
 ```bash
 bower install --save inscricao-estadual
 ```
@@ -30,10 +30,26 @@ Utilização:
 ```html
 <script src="ie.min.js"></script>
 <script>
-    var ie = require("inscricaoestadual");
-    ie(inscricaoEstadual, uf);
+    var ins = "suainscricao",
+    	uf = "sua_uf";
+
+    inscricaoEstadual(ins, uf);
 </script>
 ```
+
+Utilização com AMD (RequireJS e afins):
+```javascript
+
+define(['vendor/inscricao-estadual/ie.min.js'], function(ie){
+	
+	var ins = "suainscricao",
+    	uf = "sua_uf";
+
+    ie(ins, uf);
+
+});
+```
+
 -----------------------------------------
 
 #### ie(inscricaoEstadual[, uf])
@@ -57,8 +73,10 @@ Utilização:
 ie("012345679") === ["se", "pb", "am", "ro", "sc", "pi", "es", "mt", "to"];
 ``` 
  Quando o estado é fornecido, a validação é otimizada pois o valor da inscrição estadual é testada apenas contra a regra do estado especificado e a função retorna estritamente `true` ou `false`.
- 
-### Testes
+
+### Contribuindo
+
+#### Testes
 
 Para rodar os testes:
 
@@ -66,6 +84,12 @@ Para rodar os testes:
 
 Todas as inscrições estaduais nos testes foram obtidas publicamente na internet.  
 Se você obteve uma validação falsa para uma inscrição estadual verdadeira, pesquise no site do [Sintegra](http://www.sintegra.gov.br/ "Sintegra") se de fato esta inscrição estadual existe e é valida, neste caso [abra uma notificação](https://github.com/gammasoft/ie/issues/new) aqui no GitHub para apurarmos o caso. 
+
+#### Minificando
+
+Para minificar:
+
+	grunt minify
 
 -----------------------------------------
 
