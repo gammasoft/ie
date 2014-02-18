@@ -1,4 +1,3 @@
-module.exports = validar; 
 function validar(ie, estado){
 	if(eIndefinido(estado)) estado = "";
 	estado = estado.toLowerCase();
@@ -401,4 +400,16 @@ function mod(valor, multiplicadores, divisor){
 		if(i > multiplicadores.length - 1) i = 0;
 		return (multiplicadores[i++] * parseInt(atual, 10)) + anterior; 
 	}, 0) % divisor;
+}
+
+if (typeof exports !== 'undefined' && typeof module !== 'undefined' && module.exports) {
+		
+    module.exports = validar; 	
+
+  }else if(typeof define !== 'undefined') {
+    
+    define([], function(){
+    	return validar;
+    });
+    
 }
