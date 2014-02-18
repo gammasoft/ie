@@ -21,6 +21,11 @@ ie(inscricaoEstadual, uf);
 
 Instalação: faça o download [clicando aqui](https://raw.github.com/gammasoft/ie/master/ie.min.js)
 
+Via bower:
+```bash
+bower install --save inscricao-estadual
+```
+
 Utilização:
 ```html
 <script src="ie.min.js"></script>
