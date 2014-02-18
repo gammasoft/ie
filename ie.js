@@ -406,10 +406,16 @@ if (typeof exports !== 'undefined' && typeof module !== 'undefined' && module.ex
 		
     module.exports = validar; 	
 
-  }else if(typeof define !== 'undefined') {
+  }else{
+
+  	if(typeof define !== 'undefined') {
     
-    define([], function(){
-    	return validar;
-    });
+	    define([], function(){
+	    	return validar;
+	    });
+
+	}else{
+		window.inscricaoEstadual = validar;
+	}
     
 }
