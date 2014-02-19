@@ -20,9 +20,8 @@ ie(inscricaoEstadual, uf);
 ```    
 #### Browser
 
-Instalação: faça o download [clicando aqui](https://raw.github.com/gammasoft/ie/master/ie.min.js)
+Instalação: faça o download [aqui](https://github.com/gammasoft/ie/releases/tag/v0.0.1) ou via bower:
 
-Ou via bower:
 ```bash
 bower install --save inscricao-estadual
 ```
@@ -31,23 +30,15 @@ Utilização:
 ```html
 <script src="ie.min.js"></script>
 <script>
-    var ins = "suainscricao",
-    	uf = "sua_uf";
-
-    inscricaoEstadual(ins, uf);
+    inscricaoEstadual('suaInscricaoEstadual', 'UF');
 </script>
 ```
 
 Utilização com AMD (RequireJS e afins):
+
 ```javascript
-
 define(['vendor/inscricao-estadual/ie.min.js'], function(ie){
-	
-	var ins = "suainscricao",
-    	uf = "sua_uf";
-
-    ie(ins, uf);
-
+    ie('suaInscricaoEstadual', 'UF');
 });
 ```
 
@@ -76,6 +67,8 @@ ie("012345679") === ["se", "pb", "am", "ro", "sc", "pi", "es", "mt", "to"];
  Quando o estado é fornecido, a validação é otimizada pois o valor da inscrição estadual é testada apenas contra a regra do estado especificado e a função retorna estritamente `true` ou `false`.
 
 ### Contribuindo
+
+Faça um fork depois um pull request. Contribuições só são aceitas com testes unitários.
 
 #### Testes
 
