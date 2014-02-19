@@ -1,7 +1,8 @@
 ## IE 
 ### Validação de [inscrições estaduais](http://pt.wikipedia.org/wiki/Inscri%C3%A7%C3%A3o_Estadual "Inscrição Estadual no Wikipedia") em JavaScript (browser e node.js)
 Validações implementadas de acordo com o [manual do Sintegra](http://www.sintegra.gov.br/insc_est.html).  
-Escrito por [@renatoargh](http://www.github.com/renatoargh "Renato Gama") para [@gammasoft](http://www.github.com/gammasoft "Gammasoft")
+
+**Contribuidores:** [@renatoargh](http://www.github.com/renatoargh "Renato Gama") e [@sergiovilar](http://www.github.com/sergiovilar "Sérgio Vilar")
 
 ![IE - Status da build](https://travis-ci.org/gammasoft/ie.png) &nbsp; ![IE - Status das dependencias](https://gemnasium.com/gammasoft/ie.png) &nbsp; ![IE - Última versão](https://badge.fury.io/js/inscricaoestadual.png)
 
