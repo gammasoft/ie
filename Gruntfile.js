@@ -13,7 +13,7 @@ module.exports = function(grunt) {
             options: {
                 banner: _.template(fs.readFileSync('./comentarioTemplate.html').toString())({
                     pkg: pkg,
-                    today: grunt.template.today("dd/mm/yyyy")
+                    today: grunt.template.today('dd/mm/yyyy')
                 })
             },
 
