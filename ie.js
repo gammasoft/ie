@@ -542,7 +542,7 @@ function lookup(ie){
 }
 
 function validar(ie, estado){
-    if(eIndefinido(estado)){
+    if(eIndefinido(estado) || estado === null){
         estado = '';
     }
 

@@ -1,6 +1,6 @@
 {
   "name": "inscricaoestadual",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Biblioteca de validação de inscrições estaduais",
   "main": "ie.js",
   "scripts": {
@@ -13,25 +13,34 @@
   "keywords": [
     "inscrição",
     "estadual",
-    "validação"
+    "validação",
+    "brasil"
   ],
   "author": "Gammasoft Desenvolvimento de Software Ltda <contato@gammasoft.com.br>",
-  "contributors": [{
-    "name" : "Renato Gama",
-    "email" : "renato@gammasoft.com.br",
-    "url" : "http://github.com/renatoargh"
-  }, {
-    "name" : "Sérgio Vilar",
-    "email" : "vilar@me.com",
-    "url" : "http://github.com/sergiovilar"
-  }],
-  "license": "BSD",
+  "contributors": [
+    {
+      "name": "Sérgio Vilar",
+      "email": "vilar@me.com",
+      "url": "https://github.com/sergiovilar",
+      "contributions": 1,
+      "hireable": true
+    },
+    {
+      "name": "Renato Gama",
+      "email": "renatoargh@gmail.com",
+      "url": "https://github.com/renatoargh",
+      "contributions": 92,
+      "hireable": false
+    }
+  ],
+  "license": "MIT",
   "readmeFilename": "README.md",
   "devDependencies": {
-    "nodeunit": "~0.8.0",
     "grunt": "~0.4.2",
-    "grunt-contrib-uglify": "~0.3.2",
     "grunt-contrib-jshint": "~0.7.1",
-    "grunt-contrib-nodeunit": "~0.2.2"
+    "grunt-contrib-nodeunit": "~0.2.2",
+    "grunt-contrib-uglify": "~0.3.2",
+    "nodeunit": "~0.8.0",
+    "underscore": "^1.6.0"
   }
 }

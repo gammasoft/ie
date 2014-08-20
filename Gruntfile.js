@@ -1,5 +1,9 @@
 'use strict';
 
+var fs = require('fs'),
+    _ = require('underscore'),
+    pkg = require('./package.json');
+
 module.exports = function(grunt) {
 
     grunt.initConfig({
@@ -7,7 +11,10 @@ module.exports = function(grunt) {
 
         uglify: {
             options: {
-                banner: '/*\n<%= pkg.name %> v<%= pkg.version %> - <%= grunt.template.today("dd/mm/yyyy") %>\n<%= pkg.repository.url %>\nLicença <%= pkg.license %>\n*/\n'
+                banner: _.template(fs.readFileSync('./comentarioTemplate.html').toString())({
+                    pkg: pkg,
+                    today: grunt.template.today("dd/mm/yyyy")
+                })
             },
 
             dist: {
