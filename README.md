@@ -20,7 +20,7 @@ ie(inscricaoEstadual, uf);
 ```    
 #### Browser
 
-Instalação: faça o download [aqui](https://github.com/gammasoft/ie/releases/tag/v0.0.1) ou via bower:
+Instalação: faça o download [aqui](https://github.com/gammasoft/ie/blob/v0.0.2/ie.min.js) ou via bower:
 
 ```bash
 bower install --save inscricao-estadual
