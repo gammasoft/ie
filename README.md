@@ -4,7 +4,7 @@ Validações implementadas de acordo com o [manual do Sintegra](http://www.sinte
 
 **Contribuidores:** [@renatoargh](http://www.github.com/renatoargh "Renato Gama") e [@sergiovilar](http://www.github.com/sergiovilar "Sérgio Vilar")
 
-![IE - Status da build](https://travis-ci.org/gammasoft/ie.png) &nbsp; ![IE - Status das dependencias](https://gemnasium.com/gammasoft/ie.png) &nbsp; ![IE - Última versão](https://badge.fury.io/js/inscricaoestadual.png)
+![IE - Status da build](https://travis-ci.org/gammasoft/ie.png) &nbsp; ![IE - Status das dependencias](https://gemnasium.com/gammasoft/ie.png) &nbsp; ![IE - Última versão](https://badge.fury.io/js/inscricaoestadual.png) &nbsp; ![http://img.shields.io/npm/dm/inscricaoestadual.svg](http://img.shields.io/npm/dm/inscricaoestadual.svg)
 
 #### Node.js 
 
