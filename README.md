@@ -2,7 +2,7 @@
 ### Validação de [inscrições estaduais](http://pt.wikipedia.org/wiki/Inscri%C3%A7%C3%A3o_Estadual "Inscrição Estadual no Wikipedia") em JavaScript (browser e node.js)
 Validações implementadas de acordo com o [manual do Sintegra](http://www.sintegra.gov.br/insc_est.html).
 
-![IE - Status das dependencias](https://gemnasium.com/gammasoft/ie.png) &nbsp; ![IE - Última versão](https://badge.fury.io/js/inscricaoestadual.png)
+[![Build Status](https://drone.io/github.com/gammasoft/ie/status.png)](https://drone.io/github.com/gammasoft/ie/latest) &nbsp; ![IE - Status das dependencias](https://gemnasium.com/gammasoft/ie.png) &nbsp; ![IE - Última versão](https://badge.fury.io/js/inscricaoestadual.png)
 
 #### Node.js
 
@@ -18,7 +18,7 @@ ie(inscricaoEstadual, uf);
 ```
 #### Browser
 
-Instalação: faça o download [aqui](https://github.com/gammasoft/ie/releases/tag/v0.0.1) ou via bower:
+Instalação: faça o download [aqui](https://github.com/gammasoft/ie/blob/v0.0.2/ie.min.js) ou via bower:
 
 ```bash
 bower install --save inscricao-estadual
