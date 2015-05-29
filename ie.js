@@ -140,9 +140,16 @@ var funcoes = {
             return false;
         }
 
-        if('03578'.split('').indexOf(valor.substring(2, 3)) === -1) {
-            return false;
-        }
+        //
+        // Removi a validação do tipo da empresa abaixo
+        // devido a ambiguidade entre a especificação do
+        // Sintegra (http://www.sintegra.gov.br/Cad_Estados/cad_AL.html) e do
+        // site do da Sefaz do Alagoas (http://www.sefaz.al.gov.br/sintegra/cad_AL.asp).
+        // Veja o issue #4 - https://github.com/gammasoft/ie/issues/4
+        //
+        // if('03578'.split('').indexOf(valor.substring(2, 3)) === -1) {
+        //     return false;
+        // }
 
         var base = primeiros(valor);
 
@@ -564,7 +571,7 @@ function validar(ie, estado){
         throw new Error('ie deve ser string ou array de strings');
     }
 
-    if(ie.match(/^ISENT[O|A]$/i)) {
+    if(ie.match(/^ISENTO$/i)) {
         return true;
     }
 

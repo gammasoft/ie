@@ -51,7 +51,10 @@ module.exports = {
     },
 
     'Alagoas': function(test){
-        test.ok(['240000048'].every(function(ie){ return inscricaoEstadual(ie, 'al'); }));
+        test.ok([
+            '240000048',
+            '242258174'
+        ].every(function(ie){ return inscricaoEstadual(ie, 'al'); }));
 
         test.done();
     },

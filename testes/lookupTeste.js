@@ -61,10 +61,5 @@ module.exports = {
     'Retorna verdadeiro se é passado valor "isento" independente de case': function(test){
         test.ok(inscricaoEstadual('isento') && inscricaoEstadual('ISENTO') && inscricaoEstadual('iseNTO') && inscricaoEstadual('ISEnto'));
         test.done();
-    },
-
-    'Retorna verdadeiro se é passado valor "isenta" independente de case': function(test){
-        test.ok(inscricaoEstadual('isenta') && inscricaoEstadual('ISENTA') && inscricaoEstadual('iseNTA') && inscricaoEstadual('ISEnta'));
-        test.done();
     }
 };
