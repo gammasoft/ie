@@ -74,7 +74,11 @@ module.exports = {
     },
 
     'Rondônia': function(test){
-        test.ok(['101.62521-3', '0000000062521-3'].every(function(ie){ return inscricaoEstadual(ie, 'ro'); }));
+        test.ok([
+            '101.62521-3',
+            '0000000062521-3',
+            '00000003836321'
+        ].every(function(ie){ return inscricaoEstadual(ie, 'ro'); }));
 
         test.done();
     },

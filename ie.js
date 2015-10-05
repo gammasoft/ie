@@ -252,7 +252,7 @@ var funcoes = {
     },
 
     ro: function(valor){
-        var base, digito;
+        var base, digito, resultadoMod;
 
         if(tamanhoE(valor, 9)) {
             base = valor.substring(3, 8);
@@ -261,7 +261,8 @@ var funcoes = {
             return valor === valor.substring(0, 3) + base + digito;
         } else if(tamanhoE(valor, 14)) {
             base = primeiros(valor, 13);
-            digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base));
+            resultadoMod = mod(base);
+            digito = resultadoMod <= 1 ? 1 : 11 - resultadoMod;
 
             return valor === base + digito;
         } else {
