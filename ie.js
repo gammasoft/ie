@@ -100,13 +100,15 @@ var funcoes = {
         var primeiroMultiplicador = serie(2, 8);
 
         var primeiroResto, segundoResto;
+        var digitoComparacao = valor.substring(0, 1)
 
         if(tamanhoE(valor, 9)) {
             segundoMultiplicador.push(8);
             primeiroMultiplicador.push(9);
+            digitoComparacao = valor.substring(1, 2)
         }
 
-        if('0123458'.split('').indexOf(valor.substring(0, 1)) !== -1) {
+        if('0123458'.split('').indexOf(digitoComparacao) !== -1) {
             segundoResto = mod(base, segundoMultiplicador, 10);
             segundoDigito = segundoResto === 0 ? 0 : 10 - segundoResto;
 
