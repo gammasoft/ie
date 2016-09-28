@@ -1,6 +1,6 @@
 {
   "name": "inscricaoestadual",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Biblioteca de validação de inscrições estaduais",
   "main": "ie.js",
   "scripts": {
@@ -27,6 +27,10 @@
       "name": "Renato Gama",
       "email": "renatoargh@gmail.com",
       "url": "https://github.com/renatoargh"
+    },
+    {
+        "name": "vinidalmagro",
+        "url": "https://github.com/vinidalmagro"
     }
   ],
   "license": "MIT",
