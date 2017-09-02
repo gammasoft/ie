@@ -20,7 +20,7 @@ module.exports = {
                  '06.678895-1', '06.276628-7', '06.815570-0',
                  '06.008899-0', '06.275630-3', '06.179667-0',
                  '06.695014-7', '06.990406-5', '06.689890-0',
-                 '06.306763-3'].every(function(ie){ return inscricaoEstadual(ie, 'ce'); }));
+                 '06.306763-3', '93.836682-3', '03.614986-1'].every(function(ie){ return inscricaoEstadual(ie, 'ce'); }));
 
         test.done();
     },
@@ -10211,7 +10211,10 @@ module.exports = {
                  '13.309.318-2',
                  '13.212.558-7',
                  '13.202.191-9',
-                 '13.383.550-2'].every(function(ie){ return inscricaoEstadual(ie, 'mt'); }));
+                 '13.383.550-2',
+                 '3407818901-7',
+                 '0762266945-9',
+                 '8015865651-0'].every(function(ie){ return inscricaoEstadual(ie, 'mt'); }));
 
         test.done();
     },

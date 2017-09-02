@@ -4,12 +4,12 @@ var inscricaoEstadual = require('../ie');
 
 module.exports = {
     'Passando estado nulo não lança exceção': function(test) {
-        test.deepEqual(['se', 'pb', 'am', 'ro', 'sc', 'pi', 'es', 'mt', 'to'], inscricaoEstadual('012345679', null));
+        test.deepEqual(['se', 'pb', 'am', 'ro', 'sc', 'pi', 'es', 'ce', 'mt', 'to'], inscricaoEstadual('012345679', null));
         test.done();
     },
 
     'Passando inscrição que serve para mais de um estado': function(test){
-        test.deepEqual(['se', 'pb', 'am', 'ro', 'sc', 'pi', 'es', 'mt', 'to'], inscricaoEstadual('012345679'));
+        test.deepEqual(['se', 'pb', 'am', 'ro', 'sc', 'pi', 'es', 'ce', 'mt', 'to'], inscricaoEstadual('012345679'));
         test.done();
     },
 

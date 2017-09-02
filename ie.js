@@ -326,10 +326,6 @@ var funcoes = {
             return false;
         }
 
-        if(naoComecaCom(valor, '06')) {
-            return false;
-        }
-
         return calculoTrivial(valor);
     },
 
@@ -389,7 +385,7 @@ var funcoes = {
         }
 
         var base = tamanhoE(valor, 11) ? valor.substring(0, 10) : primeiros(valor);
-        return calculoTrivial(valor, base);
+        return calculoTrivial(valor, base, true);
     },
 
     sp: function(valor){
@@ -521,6 +517,10 @@ var funcoes = {
 
     df: function(valor){
         if(tamanhoNaoE(valor, 13)) {
+            return false;
+        }
+		
+		if(naoComecaCom(valor, '07')) {
             return false;
         }
 
