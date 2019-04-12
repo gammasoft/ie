@@ -583,7 +583,7 @@ var codigosIBGE = {
 
 function validar(ie, estado){
     if(estado && !isNaN(estado)) {
-        if(!Object.keys(codigosIBGE).includes(estado)){
+        if(!Object.keys(codigosIBGE).includes(String(estado))){
             throw new Error('código não é valido');
         }
         estado = codigosIBGE[estado];
