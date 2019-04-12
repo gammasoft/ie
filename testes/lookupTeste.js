@@ -27,6 +27,15 @@ module.exports = {
         test.doesNotThrow(function(){ inscricaoEstadual('012345679', ''); });
         test.done();
     },
+    'Passando codigo do IBGE no estado funciona': function(test){
+        test.doesNotThrow(function(){ inscricaoEstadual('012345679', '43'); });
+        test.done();
+    },
+
+    'Passando codigo do IBGE invalido no estado da erro': function(test){
+        test.throws(function(){ inscricaoEstadual('012345679', '123'); });
+        test.done();
+    },
 
     'Não passando inscrição estadual lança erro': function(test){
         test.throws(function(){ inscricaoEstadual(); });
