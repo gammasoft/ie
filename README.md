@@ -1,3 +1,8 @@
+# ATENÇÃO: PROJETO ABANDONADO - úlitimo commit 4 anos atrás.
+
+---------
+
+
 ## IE
 ### Validação de [inscrições estaduais](http://pt.wikipedia.org/wiki/Inscri%C3%A7%C3%A3o_Estadual "Inscrição Estadual no Wikipedia") em JavaScript (browser e node.js)
 Validações implementadas de acordo com o [manual do Sintegra](http://www.sintegra.gov.br/insc_est.html).
