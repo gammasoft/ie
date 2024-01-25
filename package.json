@@ -1,5 +1,5 @@
 {
-  "name": "inscricao-estadual-printi",
+  "name": "@printi-tech/inscricao-estadual-printi",
   "version": "1.0.0",
   "description": "Biblioteca de validação de inscrições estaduais",
   "main": "ie.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Printi/inscricao-estadual"
+    "url": "git+https://github.com/Printi/inscricao-estadual.git"
   },
   "keywords": [
     "inscrição",
@@ -18,27 +18,12 @@
   ],
   "author": "Gammasoft Desenvolvimento de Software Ltda <contato@gammasoft.com.br>",
   "contributors": [
-    {
-      "name": "Sérgio Vilar",
-      "email": "vilar@me.com",
-      "url": "https://github.com/sergiovilar"
-    },
-    {
-      "name": "Renato Gama",
-      "email": "renatoargh@gmail.com",
-      "url": "https://github.com/renatoargh"
-    },
-    {
-      "name": "vinidalmagro",
-      "url": "https://github.com/vinidalmagro"
-    },
-    {
-      "name":"montedo-dev",
-      "url": "https://github.com/montedo-dev"
-    }
+    "Sérgio Vilar <vilar@me.com> (https://github.com/sergiovilar)",
+    "Renato Gama <renatoargh@gmail.com> (https://github.com/renatoargh)",
+    "vinidalmagro (https://github.com/vinidalmagro)",
+    "montedo-dev (https://github.com/montedo-dev)"
   ],
   "license": "MIT",
-  "readmeFilename": "README.md",
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-jshint": "~0.7.1",
@@ -46,5 +31,13 @@
     "grunt-contrib-uglify": "~0.3.2",
     "nodeunit": "~0.8.0",
     "underscore": "^1.6.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/Printi/inscricao-estadual/issues"
+  },
+  "publishConfig": {
+    "registry": "https://github.com/Printi/inscricao-estadual"
+  },
+  "homepage": "https://github.com/Printi/inscricao-estadual#readme",
+  "dependencies": {}
 }

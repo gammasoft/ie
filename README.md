@@ -1,19 +1,18 @@
-# Dada a descontinuidade do projeto pela Gamasoft, estamos assumindo a sua continuidade com total adesão à licença MIT.
+# Validação de inscrições estaduais
 
 ---------
 
-
+## # Dada a descontinuidade do projeto pela Gamasoft, estamos assumindo a sua continuidade com total adesão à licença MIT.
 ## IE
 ### Validação de [inscrições estaduais](http://pt.wikipedia.org/wiki/Inscri%C3%A7%C3%A3o_Estadual "Inscrição Estadual no Wikipedia") em JavaScript (browser e node.js)
 Validações implementadas de acordo com o [manual do Sintegra](http://www.sintegra.gov.br/insc_est.html).
 
-[![Build Status](https://drone.io/github.com/gammasoft/ie/status.png)](https://drone.io/github.com/gammasoft/ie/latest) &nbsp; ![IE - Status das dependencias](https://gemnasium.com/gammasoft/ie.png) &nbsp; ![IE - Última versão](https://badge.fury.io/js/inscricaoestadual.png)
 
 #### Node.js
 
 Instalação:
 ```bash
-npm install inscricaoestadual
+npm i @printi-tech/inscricao-estadual-printi
 ```
 Utilização:
 
