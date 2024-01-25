@@ -485,7 +485,7 @@ var funcoes = {
             return false;
         }
 
-        if(['10', '11', '15'].indexOf(valor.substring(0, 2)) === -1) {
+        if(['10', '11', '15', '20'].indexOf(valor.substring(0, 2)) === -1) {
             return false;
         }
 

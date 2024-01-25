@@ -1,4 +1,4 @@
-# ATENÇÃO: PROJETO ABANDONADO - úlitimo commit 4 anos atrás.
+# Dada a descontinuidade do projeto pela Gamasoft, estamos assumindo a sua continuidade com total adesão à licença MIT.
 
 ---------
 
@@ -23,7 +23,7 @@ ie(inscricaoEstadual, uf);
 ```
 #### Browser
 
-Instalação: faça o download [aqui](https://github.com/gammasoft/ie/blob/v0.0.2/ie.min.js) ou via bower:
+Instalação: faça o download [aqui](https://github.com/Printi/inscricao-estadual/blob/main/ie.min.js) ou via bower:
 
 ```bash
 bower install --save inscricao-estadual
@@ -76,16 +76,16 @@ Faça um fork depois um pull request. Contribuições só são aceitas com teste
 #### Testes
 
 Para rodar os testes:
-
+    npm install -g grunt-cli
     npm test
 
 Todas as inscrições estaduais nos testes foram obtidas publicamente na internet.
-Se você obteve uma validação falsa para uma inscrição estadual verdadeira, pesquise no site do [Sintegra](http://www.sintegra.gov.br/ "Sintegra") se de fato esta inscrição estadual existe e é valida, neste caso [abra uma notificação](https://github.com/gammasoft/ie/issues/new) aqui no GitHub para apurarmos o caso.
+Se você obteve uma validação falsa para uma inscrição estadual verdadeira, pesquise no site do [Sintegra](http://www.sintegra.gov.br/ "Sintegra") se de fato esta inscrição estadual existe e é valida, neste caso [abra uma notificação](https://github.com/Printi/inscricao-estadual/issues/new) aqui no GitHub para apurarmos o caso.
 
 #### Minificando
 
 Para minificar:
-
+    npm install -g grunt-cli
 	grunt minify
 
 -----------------------------------------
